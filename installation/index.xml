@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installation on c3os</title>
+    <link>https://mudler.github.io/c3os/installation/</link>
+    <description>Recent content in Installation on c3os</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://mudler.github.io/c3os/installation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Device Pairing</title>
+      <link>https://mudler.github.io/c3os/installation/device_pairing-copy/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/installation/device_pairing-copy/</guid>
+      <description>Only the openSUSE variant supports automatic peer discovery and device pairing.
+ For pairing a c3os node, you will use the c3os CLI which is downloadable as part of the releases from another machine, which will be used to pair a new node.
+Start the c3os ISO Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster. It doesn&amp;rsquo;t matter if you are joining a node to an existing cluster or creating a new one, the procedure is still the same.</description>
+    </item>
+    
+    <item>
+      <title>Automated installation</title>
+      <link>https://mudler.github.io/c3os/installation/automated/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/installation/automated/</guid>
+      <description>Automated installation is available as well aside of manual pairing.
+A cloud-init of the following form can be supplied as a datasource (CDROM, etc.):
+#cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
+    </item>
+    
+    <item>
+      <title>Take over installation</title>
+      <link>https://mudler.github.io/c3os/installation/takeover/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/installation/takeover/</guid>
+      <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
+ From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
+    </item>
+    
+  </channel>
+</rss>

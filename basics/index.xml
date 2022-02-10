@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basics on c3os</title>
+    <link>https://mudler.github.io/c3os/basics/</link>
+    <description>Recent content in Basics on c3os</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://mudler.github.io/c3os/basics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Layout</title>
+      <link>https://mudler.github.io/c3os/basics/layout/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/basics/layout/</guid>
+      <description>c3OS is an immutable Distribution, built with the cOS-toolkit.
+By default, c3OS uses an immutable setup.
+A running system will look like as follows:
+/usr/local - persistent (COS_PERSISTENT) /oem - persistent (COS_OEM) /etc - ephemeral /usr - read only / immutable See also cOS docs</description>
+    </item>
+    
+    <item>
+      <title>Architecture</title>
+      <link>https://mudler.github.io/c3os/basics/architecture/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/basics/architecture/</guid>
+      <description>c3OS uses edgevpn to coordinate, automatically discover/configure peers and establish a p2p vpn network between the cluster nodes.
+The initial pairing is done via QR code to ease out deployment on situations where sending files or connecting remotely is inconvienent, or either with automatic configuration via cloud-init.</description>
+    </item>
+    
+    <item>
+      <title>CLI</title>
+      <link>https://mudler.github.io/c3os/basics/cli/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/basics/cli/</guid>
+      <description>A CLI is provided as part of releases associated to each c3os version.
+The CLI can be used from an external machine to generate network tokens and pair nodes on first-boot.</description>
+    </item>
+    
+  </channel>
+</rss>
