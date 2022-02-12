@@ -4,7 +4,7 @@
 	"title": "Basics",
 	"tags": [],
 	"description": "",
-	"content": "Exploring c3os basics Layout, Architecture, the CLI\n"
+	"content": "Exploring c3os basics Layout, Architecture, the CLI C3OS nodes autonomously connect and configure each other via P2P. No central server is needed.\n"
 },
 {
 	"uri": "https://mudler.github.io/c3os/installation/device_pairing-copy/",
@@ -39,7 +39,7 @@
 	"title": "Automated installation",
 	"tags": [],
 	"description": "",
-	"content": "Automated installation is available as well aside of manual pairing.\nA cloud-init of the following form can be supplied as a datasource (CDROM, etc.):\n#cloud-init c3os: device: \u0026#34;/dev/sda\u0026#34; reboot: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically\n"
+	"content": "Automated installation is available as well aside of manual pairing.\nA cloud-init of the following form can be supplied as a datasource (CDROM, etc.):\n#cloud-init c3os: device: \u0026#34;/dev/sda\u0026#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically\n"
 },
 {
 	"uri": "https://mudler.github.io/c3os/installation/",
@@ -53,7 +53,7 @@
 	"title": "Paths",
 	"tags": [],
 	"description": "",
-	"content": "The following paths are used by c3os:\n   Path Description     /usr/local/.c3os/deployed Sentinel file written after bootstrapping is complete. Remove to retrigger automatic bootstrap   /usr/local/.c3os/lease IP Lease of the node in the network. Delete to change IP address of the node    "
+	"content": "The following paths are relevant for c3os:\n   Path Description     /usr/local/.c3os/deployed Sentinel file written after bootstrapping is complete. Remove to retrigger automatic bootstrap   /usr/local/.c3os/lease IP Lease of the node in the network. Delete to change IP address of the node    "
 },
 {
 	"uri": "https://mudler.github.io/c3os/after_install/",
@@ -77,11 +77,18 @@
 	"content": "c3os supports takeover installations, see also the cOS docs here are few summarized steps:\n From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  "
 },
 {
+	"uri": "https://mudler.github.io/c3os/after_install/troubleshooting/",
+	"title": "Troubleshooting",
+	"tags": [],
+	"description": "",
+	"content": "Get kubeconfig On all nodes of the cluster it\u0026rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file\nConnect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to. Refer to the edgeVPN documentation on how to connect to the VPN, but it boils down to run edgevpn:\nEDGEVPNTOKEN=\u0026lt;network_token\u0026gt; edgevpn --dhcp Setup process c3os node at first boot will start the c3os-setup service, you can always check what\u0026rsquo;s happening by running journalctl -fu c3os-setup.\nThis service will setup k3s and edgevpn dynamically on first-boot, once it configures the machine it does not run on boot anymore, unless /usr/local/.c3os/deployed is removed..\nThose are the steps executed in sequence by the c3os-setup service:\n Will create a edgevpn@c3os service and enabled on start. The configuration for the connection is stored in /etc/systemd/system.conf.d/edgevpn-c3os.env and depends on the cloud-init configuration file provided during installation time Automatic role negotiation starts, nodes will co-ordinate for an IP and a role Once roles are defined a node will either set the k3s or k3s-agent service. Configuration for each service is stored in /etc/sysconfig/k3s and /etc/sysconfig/k3s-agent respectively  "
+},
+{
 	"uri": "https://mudler.github.io/c3os/",
 	"title": "",
 	"tags": [],
 	"description": "",
-	"content": "C3os C3os is a lightweight Kubernetes distro that supports automatic node discovery, focused on creating private disposable distributed kubernetes clusters.\nC3os allows to create highly decentralized automated kubernetes clusters with Decentralized Device Pairing or via cloud-init.\nc3OS is:\n Immutable cloud-init driven P2P first Automatized in every aspect  By default cluster nodes are connected each other via a p2p VPN which will also coordinates and prepare the nodes roles automatically, transparently to the user. There is no central server needed, and nodes will try to automatically connect each other by holepunching, snatting, and creating intermediate hops as necessary.\nc3OS is composed of:\n k3s as a Kubernetes distribution edgevpn as fabric for the distributed network, node coordination and bootstrap cOS-toolkit as a fundament to build the Linux derivative. Indeed, any cOS docs applies to c3os as well.  "
+	"content": "C3os C3OS is a lightweight Kubernetes distro that supports automatic node discovery, automatic role assignment and VPN out of the box. C3OS nodes connect autonomously via P2P VPN, without any central server.\nC3OS is focused on creating private disposable distributed kubernetes clusters.\nConfiguration and installation is done via Decentralized Device Pairing or via cloud-init.\nc3OS is:\n Immutable cloud-init driven P2P first Automatized in every aspect  By default cluster nodes are connected each other via a p2p VPN which will also coordinates and prepare the nodes roles automatically, transparently to the user. There is no central server needed, and nodes will try to automatically connect each other by holepunching, snatting, and creating intermediate hops as necessary.\nc3OS is composed of:\n k3s as a Kubernetes distribution edgevpn as fabric for the distributed network, node coordination and bootstrap cOS-toolkit as a fundament to build the Linux derivative. Indeed, any cOS docs applies to c3os as well.  "
 },
 {
 	"uri": "https://mudler.github.io/c3os/categories/",

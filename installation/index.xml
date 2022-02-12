@@ -26,7 +26,7 @@ Start the c3os ISO Download and mount the ISO in either baremetal or a VM that y
       <guid>https://mudler.github.io/c3os/installation/automated/</guid>
       <description>Automated installation is available as well aside of manual pairing.
 A cloud-init of the following form can be supplied as a datasource (CDROM, etc.):
-#cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
+#cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
     </item>
     
     <item>

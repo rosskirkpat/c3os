@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/c3os/images/favicon.png" type="image/png">
 
-    <title>Take over installation :: c3os</title>
+    <title>Troubleshooting :: c3os</title>
 
     
     <link href="/c3os/css/nucleus.css?1644627685" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/c3os/installation/takeover/">
+  <body class="" data-url="/c3os/after_install/troubleshooting/">
     <nav id="sidebar" class="">
 
 
@@ -180,7 +180,7 @@
   
     
     <li data-nav-id="/c3os/installation/" title="Installation" class="dd-item
-        parent
+        
         
         
         ">
@@ -248,7 +248,7 @@
  
   
     
-      <li data-nav-id="/c3os/installation/takeover/" title="Take over installation" class="dd-item active">
+      <li data-nav-id="/c3os/installation/takeover/" title="Take over installation" class="dd-item ">
         <a href="/c3os/installation/takeover/">
         <b>- </b>Take over installation
         
@@ -277,7 +277,7 @@
   
     
     <li data-nav-id="/c3os/after_install/" title="After install" class="dd-item
-        
+        parent
         
         
         ">
@@ -345,7 +345,7 @@
  
   
     
-      <li data-nav-id="/c3os/after_install/troubleshooting/" title="Troubleshooting" class="dd-item ">
+      <li data-nav-id="/c3os/after_install/troubleshooting/" title="Troubleshooting" class="dd-item active">
         <a href="/c3os/after_install/troubleshooting/">
         <b>- </b>Troubleshooting
         
@@ -412,7 +412,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/mudler/c3os/edit/master/docs/content/installation/takeover.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/mudler/c3os/edit/master/docs/content/after_install/troubleshooting.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -443,7 +443,7 @@
             
           
           
-            <a href='/c3os/'></a> > <a href='/c3os/installation/'>Installation</a> > Take over installation
+            <a href='/c3os/'></a> > <a href='/c3os/after_install/'>After install</a> > Troubleshooting
           
         
           
@@ -472,25 +472,26 @@
           
             <h1>
               
-              Take over installation
+              Troubleshooting
             </h1>
           
 
         
 
 
-<p><code>c3os</code> supports takeover installations, see also <a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/install/#installation-from-3rd-party-livecd-or-rescue-mediums">the cOS docs</a> here are few summarized steps:</p>
+<h1 id="get-kubeconfig">Get kubeconfig</h1>
+<p>On all nodes of the cluster it&rsquo;s possible to invoke <code>c3os get-kubeconfig</code> to recover the kubeconfig file</p>
+<h1 id="connect-to-the-cluster-network">Connect to the cluster network</h1>
+<p>Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of <a href="https://github.com/mudler/edgevpn">edgevpn</a> networks, and thus can be used to connect to. Refer to the <a href="https://mudler.github.io/edgevpn/docs/getting-started/cli/">edgeVPN</a> documentation on how to connect to the VPN, but it boils down to run <code>edgevpn</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">EDGEVPNTOKEN<span style="color:#f92672">=</span>&lt;network_token&gt; edgevpn --dhcp
+</code></pre></div><h1 id="setup-process">Setup process</h1>
+<p><code>c3os</code> node at first boot will start the <code>c3os-setup</code> service, you can always check what&rsquo;s happening by running <code>journalctl -fu c3os-setup</code>.</p>
+<p>This service will setup <code>k3s</code> and <code>edgevpn</code> dynamically on first-boot, once it configures the machine it does not run on boot anymore, unless <code>/usr/local/.c3os/deployed</code> is removed..</p>
+<p>Those are the steps executed in sequence by the <code>c3os-setup</code> service:</p>
 <ul>
-<li>From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode</li>
-<li><a href="https://docs.docker.com/engine/install/debian/">install docker</a> and run:</li>
-</ul>
-<pre tabindex="0"><code>export DEVICE=/dev/sda
-</code></pre><pre tabindex="0"><code>export IMAGE=quay.io/mudler/c3os:v1.21.4-19
-</code></pre><pre tabindex="0"><code># A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com
-export CONFIG_FILE=...
-</code></pre><pre tabindex="0"><code>docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE
-</code></pre><ul>
-<li>Switch back to booting from HD and reboot</li>
+<li>Will create a <code>edgevpn@c3os</code> service and enabled on start. The configuration for the connection is stored in <code>/etc/systemd/system.conf.d/edgevpn-c3os.env</code> and depends on the cloud-init configuration file provided during installation time</li>
+<li>Automatic role negotiation starts, nodes will co-ordinate for an IP and a role</li>
+<li>Once roles are defined a node will either set the <code>k3s</code> or <code>k3s-agent</code> service. Configuration for each service is stored in <code>/etc/sysconfig/k3s</code> and <code>/etc/sysconfig/k3s-agent</code> respectively</li>
 </ul>
 
 
@@ -596,6 +597,70 @@ export CONFIG_FILE=...
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -645,73 +710,6 @@ export CONFIG_FILE=...
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -736,10 +734,10 @@ export CONFIG_FILE=...
 	 
 	 
 		
-			<a class="nav nav-prev" href="/c3os/installation/automated/" title="Automated installation"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/c3os/after_install/paths/" title="Paths"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/c3os/after_install/" title="After install" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/c3os/after_install/upgrades/" title="Upgrades" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

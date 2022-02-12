@@ -59,7 +59,7 @@ The initial pairing is done via QR code to ease out deployment on situations whe
       <guid>https://mudler.github.io/c3os/installation/automated/</guid>
       <description>Automated installation is available as well aside of manual pairing.
 A cloud-init of the following form can be supplied as a datasource (CDROM, etc.):
-#cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
+#cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@ A cloud-init of the following form can be supplied as a datasource (CDROM, etc.)
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
       <guid>https://mudler.github.io/c3os/after_install/paths/</guid>
-      <description>The following paths are used by c3os:
+      <description>The following paths are relevant for c3os:
    Path Description     /usr/local/.c3os/deployed Sentinel file written after bootstrapping is complete. Remove to retrigger automatic bootstrap   /usr/local/.c3os/lease IP Lease of the node in the network. Delete to change IP address of the node    </description>
     </item>
     
@@ -90,6 +90,16 @@ The CLI can be used from an external machine to generate network tokens and pair
       <guid>https://mudler.github.io/c3os/installation/takeover/</guid>
       <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
  From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting</title>
+      <link>https://mudler.github.io/c3os/after_install/troubleshooting/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/after_install/troubleshooting/</guid>
+      <description>Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
+Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to. Refer to the edgeVPN documentation on how to connect to the VPN, but it boils down to run edgevpn:</description>
     </item>
     
   </channel>
