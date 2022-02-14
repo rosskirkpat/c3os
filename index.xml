@@ -8,6 +8,17 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://mudler.github.io/c3os/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Architecture</title>
+      <link>https://mudler.github.io/c3os/basics/architecture/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/basics/architecture/</guid>
+      <description>C3OS comes as ISO and as a CLI which can be downloaded from the release page. The CLI setups k3s and is also used to automatically register nodes in a private, user-defined network.
+Currently Alpine-based and openSUSE-based flavors are available, the openSUSE-based flavor supports autonomous kubernetes bootstrapping with the c3os CLI.
+C3OS nodes based on openSUSE autonomously connect and configure each other via P2P, no network setup and no central server is needed.</description>
+    </item>
+    
+    <item>
       <title>Device Pairing</title>
       <link>https://mudler.github.io/c3os/installation/device_pairing/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
@@ -16,18 +27,6 @@
       <description>Only the openSUSE variant supports automatic peer discovery and device pairing.
  For pairing a c3os node, you will use the c3os CLI which is downloadable as part of the releases from another machine, which will be used to pair a new node.
 Start the c3os ISO Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster. It doesn&amp;rsquo;t matter if you are joining a node to an existing cluster or creating a new one, the procedure is still the same.</description>
-    </item>
-    
-    <item>
-      <title>Layout</title>
-      <link>https://mudler.github.io/c3os/basics/layout/</link>
-      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
-      
-      <guid>https://mudler.github.io/c3os/basics/layout/</guid>
-      <description>c3OS is an immutable Distribution, built with the cOS-toolkit.
-By default, c3OS uses an immutable setup.
-A running system will look like as follows:
-/usr/local - persistent (COS_PERSISTENT) /oem - persistent (COS_OEM) /etc - ephemeral /usr - read only / immutable See also cOS docs</description>
     </item>
     
     <item>
@@ -42,16 +41,6 @@ cos-upgrade --no-verify --no-cosign --docker-image quay.io/mudler/c3os:opensuse-
     </item>
     
     <item>
-      <title>Architecture</title>
-      <link>https://mudler.github.io/c3os/basics/architecture/</link>
-      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
-      
-      <guid>https://mudler.github.io/c3os/basics/architecture/</guid>
-      <description>c3OS uses edgevpn to coordinate, automatically discover/configure peers and establish a p2p vpn network between the cluster nodes.
-The initial pairing is done via QR code to ease out deployment on situations where sending files or connecting remotely is inconvienent, or either with automatic configuration via cloud-init.</description>
-    </item>
-    
-    <item>
       <title>Automated installation</title>
       <link>https://mudler.github.io/c3os/installation/automated/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
@@ -60,6 +49,18 @@ The initial pairing is done via QR code to ease out deployment on situations whe
       <description>Automated installation is available as well aside of manual pairing.
 A cloud-init of the following form can be supplied as a datasource (CDROM, etc.):
 #cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
+    </item>
+    
+    <item>
+      <title>Layout</title>
+      <link>https://mudler.github.io/c3os/basics/layout/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/basics/layout/</guid>
+      <description>c3OS is an immutable Distribution, built with the cOS-toolkit.
+By default, c3OS uses an immutable setup.
+A running system will look like as follows:
+/usr/local - persistent (COS_PERSISTENT) /oem - persistent (COS_OEM) /etc - ephemeral /usr - read only / immutable See also cOS docs.</description>
     </item>
     
     <item>
@@ -79,7 +80,8 @@ A cloud-init of the following form can be supplied as a datasource (CDROM, etc.)
       
       <guid>https://mudler.github.io/c3os/basics/cli/</guid>
       <description>A CLI is provided as part of releases associated to each c3os version.
-The CLI can be used from an external machine to generate network tokens and pair nodes on first-boot.</description>
+The CLI can be used from an external machine to generate network tokens and pair nodes on first-boot.
+./c3os --help NAME: c3os - c3os (register|install) USAGE: [global options] command [command options] [arguments...] VERSION: 0.1 DESCRIPTION: c3os registers and installs c3os boxes AUTHOR: Ettore Di Giacinto COMMANDS: register create-config, c generate-token, g setup, s get-kubeconfig install, i help, h Shows a list of commands or help for one command create-config Generates a new c3os configuration file which can be used as cloud-init, with a new unique network token:</description>
     </item>
     
     <item>

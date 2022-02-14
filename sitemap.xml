@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mudler.github.io/c3os/basics/architecture/</loc>
+    <lastmod>2022-02-09T17:56:26+01:00</lastmod>
+  </url><url>
     <loc>https://mudler.github.io/c3os/basics/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
     <loc>https://mudler.github.io/c3os/installation/device_pairing/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://mudler.github.io/c3os/basics/layout/</loc>
-    <lastmod>2022-02-09T17:56:26+01:00</lastmod>
-  </url><url>
     <loc>https://mudler.github.io/c3os/after_install/upgrades/</loc>
-    <lastmod>2022-02-09T17:56:26+01:00</lastmod>
-  </url><url>
-    <loc>https://mudler.github.io/c3os/basics/architecture/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
     <loc>https://mudler.github.io/c3os/installation/automated/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
     <loc>https://mudler.github.io/c3os/installation/</loc>
+    <lastmod>2022-02-09T17:56:26+01:00</lastmod>
+  </url><url>
+    <loc>https://mudler.github.io/c3os/basics/layout/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
     <loc>https://mudler.github.io/c3os/after_install/paths/</loc>

@@ -12,22 +12,22 @@
     <title>CLI :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1644793538" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1644793538" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1644871324" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1644793538" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1644871324" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1644793538"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1644871324"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1644793538"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1644793538"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1644871324"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1644871324"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mudler.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1644793538"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1644871324"></script>
 
     
   </div>
@@ -109,9 +109,9 @@
  
   
     
-      <li data-nav-id="/c3os/basics/layout/" title="Layout" class="dd-item ">
-        <a href="/c3os/basics/layout/">
-        <b>- </b>Layout
+      <li data-nav-id="/c3os/basics/architecture/" title="Architecture" class="dd-item ">
+        <a href="/c3os/basics/architecture/">
+        <b>- </b>Architecture
         
         </a>
     </li>
@@ -130,9 +130,9 @@
  
   
     
-      <li data-nav-id="/c3os/basics/architecture/" title="Architecture" class="dd-item ">
-        <a href="/c3os/basics/architecture/">
-        <b>- </b>Architecture
+      <li data-nav-id="/c3os/basics/layout/" title="Layout" class="dd-item ">
+        <a href="/c3os/basics/layout/">
+        <b>- </b>Layout
         
         </a>
     </li>
@@ -477,7 +477,20 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-config"><code>create-config</code></a></li>
+    <li><a href="#generate-token"><code>generate-token</code></a></li>
+    <li><a href="#register"><code>register</code></a>
+      <ul>
+        <li><a href="#taking-a-screenshot">Taking a screenshot</a></li>
+        <li><a href="#providing-a-qrcode-imagescreenshot-manually">Providing a qrcode image/screenshot manually</a></li>
+      </ul>
+    </li>
+    <li><a href="#install"><code>install</code></a></li>
+    <li><a href="#setup"><code>setup</code></a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -502,6 +515,101 @@
 
 <p>A CLI is provided as part of releases associated to each <code>c3os</code> version.</p>
 <p>The CLI can be used from an external machine to generate network tokens and pair nodes on first-boot.</p>
+<pre tabindex="0"><code>./c3os --help                                                         
+NAME:
+   c3os - c3os (register|install)
+
+USAGE:
+    [global options] command [command options] [arguments...]
+
+VERSION:
+   0.1
+
+DESCRIPTION:
+   c3os registers and installs c3os boxes
+
+AUTHOR:
+   Ettore Di Giacinto
+
+COMMANDS:
+   register           
+   create-config, c   
+   generate-token, g  
+   setup, s           
+   get-kubeconfig     
+   install, i         
+   help, h            Shows a list of commands or help for one command
+</code></pre><h2 id="create-config"><code>create-config</code></h2>
+<p>Generates a new <code>c3os</code> configuration file which can be used as cloud-init, with a new unique network token:</p>
+<pre tabindex="0"><code>$ ./c3os create-config  
+c3os:
+  network_token: b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IEVCMzJJMlNXTjJCNFBHNEtCWTNBUVBBS0FWRTY0Q0VLVUlDTktTUFVWVU5BWTM0QklEQ0EKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBDMk1RRk5DWEFVRElPWjVHM1pZUUIzVEVHTzVXVEdQR1pZSEVQQkY3SFEyVUROUlZCTkxRCiAgICBsZW5ndGg6IDMyCnJvb206IGp6Q29kQVVOWUZSUklQU3JISmx4d1BVUnVxTGJQQnh4CnJlbmRlenZvdXM6IG5NckRCbllyVVBMdnFPV0Z2dWZvTktXek1adEJIRmpzCm1kbnM6IGpQUUhIbVZza2x6V29xbWNkeVlnbVhMSVFjTE1HUFN6Cm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg==
+  offline: false
+  reboot: false
+  device: &quot;&quot;
+  poweroff: false
+</code></pre><p>Now you can use this in your configuration file to create new c3os nodes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">c3os</span>:
+  <span style="color:#f92672">network_token</span>: <span style="color:#ae81ff">b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IEVCMzJJMlNXTjJCNFBHNEtCWTNBUVBBS0FWRTY0Q0VLVUlDTktTUFVWVU5BWTM0QklEQ0EKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBDMk1RRk5DWEFVRElPWjVHM1pZUUIzVEVHTzVXVEdQR1pZSEVQQkY3SFEyVUROUlZCTkxRCiAgICBsZW5ndGg6IDMyCnJvb206IGp6Q29kQVVOWUZSUklQU3JISmx4d1BVUnVxTGJQQnh4CnJlbmRlenZvdXM6IG5NckRCbllyVVBMdnFPV0Z2dWZvTktXek1adEJIRmpzCm1kbnM6IGpQUUhIbVZza2x6V29xbWNkeVlnbVhMSVFjTE1HUFN6Cm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg==</span>
+  <span style="color:#f92672">offline</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#f92672">reboot</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#f92672">device</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#f92672">poweroff</span>: <span style="color:#66d9ef">false</span>
+
+<span style="color:#75715e"># Cloud init syntax to setup users. </span>
+<span style="color:#75715e"># See https://rancher-sandbox.github.io/cos-toolkit-docs/docs/reference/cloud_init/</span>
+<span style="color:#f92672">stages</span>:
+   <span style="color:#f92672">network</span>:
+     - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Setup users&#34;</span>
+       <span style="color:#f92672">authorized_keys</span>:
+        <span style="color:#f92672">c3os</span>: 
+        - <span style="color:#ae81ff">github:yourhandle!</span>
+</code></pre></div><h2 id="generate-token"><code>generate-token</code></h2>
+<p>Generates a new network token which can be used in a configuration file:</p>
+<pre tabindex="0"><code>$ ./c3os generate-token
+b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IFhMMjRYUk1MTlFOQ1pJQTU0SVFLQ1laMk83SENQWEFBU1ZKN0tZSTQ3MzVaUkpKSktRSEEKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBMR1dMWFBTUllaU0ZERDdOT0pBNzdKV0ZWQjRHVkZBMjJIWlZPWU1VT0lNSFVYNFZXUURRCiAgICBsZW5ndGg6IDMyCnJvb206IFRtcUt5VnFHQ1ZZam9TRm9CTEVNRGVEdmJzelBkVEdoCnJlbmRlenZvdXM6IGttb3J4Q21sY2NjVVppWmdkSW5xTERvTGJtS3ZGdm9mCm1kbnM6IEZkWVdQc2R4aHdvWHZlb0VzSXNnVHRXbEJUbE9IVHJmCm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg==
+</code></pre><p>And now:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">c3os</span>:
+  <span style="color:#f92672">network_token</span>: <span style="color:#ae81ff">b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IFhMMjRYUk1MTlFOQ1pJQTU0SVFLQ1laMk83SENQWEFBU1ZKN0tZSTQ3MzVaUkpKSktRSEEKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBMR1dMWFBTUllaU0ZERDdOT0pBNzdKV0ZWQjRHVkZBMjJIWlZPWU1VT0lNSFVYNFZXUURRCiAgICBsZW5ndGg6IDMyCnJvb206IFRtcUt5VnFHQ1ZZam9TRm9CTEVNRGVEdmJzelBkVEdoCnJlbmRlenZvdXM6IGttb3J4Q21sY2NjVVppWmdkSW5xTERvTGJtS3ZGdm9mCm1kbnM6IEZkWVdQc2R4aHdvWHZlb0VzSXNnVHRXbEJUbE9IVHJmCm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg==</span>
+  <span style="color:#f92672">offline</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#f92672">reboot</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#f92672">device</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#f92672">poweroff</span>: <span style="color:#66d9ef">false</span>
+
+<span style="color:#75715e"># Cloud init syntax to setup users. </span>
+<span style="color:#75715e"># See https://rancher-sandbox.github.io/cos-toolkit-docs/docs/reference/cloud_init/</span>
+<span style="color:#f92672">stages</span>:
+   <span style="color:#f92672">network</span>:
+     - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Setup users&#34;</span>
+       <span style="color:#f92672">authorized_keys</span>:
+        <span style="color:#f92672">c3os</span>: 
+        - <span style="color:#ae81ff">github:yourhandle!</span>
+</code></pre></div><h2 id="register"><code>register</code></h2>
+<p>The <strong>register</strong> command can be used to register and drive installation of nodes via QR code with a cloud-init config file ( with <code>--config</code>).</p>
+<pre tabindex="0"><code>NAME:
+    register - 
+
+USAGE:
+    register [command options] [arguments...]
+
+OPTIONS:
+   --config value  
+   --device value  
+   --reboot        
+   --poweroff
+</code></pre><p>When booting <code>c3os</code> via ISO, the boot process ends up in displaying a QR code which can be parsed by <code>c3os register</code> from another machine.</p>
+<h3 id="taking-a-screenshot">Taking a screenshot</h3>
+<p><code>register</code> by default takes a screenshot and tries to find a QR code in it:</p>
+<pre tabindex="0"><code>c3os register
+</code></pre><h3 id="providing-a-qrcode-imagescreenshot-manually">Providing a qrcode image/screenshot manually</h3>
+<p>It can be also be specified an image:</p>
+<pre tabindex="0"><code>c3os register &lt;file.png&gt;
+</code></pre><p>After the pairing is done, the node will start installation with the provided options.</p>
+<p>A <code>--device</code> and a <code>--config</code> file are required in order to have a functional installation.</p>
+<h2 id="install"><code>install</code></h2>
+<p>Called by c3os nodes on boot and not meant to be used manually. It kicks in the installation and the QR pairing process.</p>
+<h2 id="setup"><code>setup</code></h2>
+<p>Called by c3os nodes on boot and not meant to be used manually. It prepares <code>edgevpn</code> and <code>k3s</code> bootstrapping the node and the VPN.</p>
 
 
 <footer class="footline">
@@ -759,7 +867,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/c3os/basics/architecture/" title="Architecture"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/c3os/basics/layout/" title="Layout"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/c3os/installation/" title="Installation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -772,19 +880,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1644793538"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1644793538"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644793538"></script>
-    <script src="/c3os/js/jquery.sticky.js?1644793538"></script>
-    <script src="/c3os/js/featherlight.min.js?1644793538"></script>
-    <script src="/c3os/js/highlight.pack.js?1644793538"></script>
+    <script src="/c3os/js/clipboard.min.js?1644871324"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1644871324"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644871324"></script>
+    <script src="/c3os/js/jquery.sticky.js?1644871324"></script>
+    <script src="/c3os/js/featherlight.min.js?1644871324"></script>
+    <script src="/c3os/js/highlight.pack.js?1644871324"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644793538"></script>
-    <script src="/c3os/js/learn.js?1644793538"></script>
-    <script src="/c3os/js/hugo-learn.js?1644793538"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644871324"></script>
+    <script src="/c3os/js/learn.js?1644871324"></script>
+    <script src="/c3os/js/hugo-learn.js?1644871324"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1644793538"></script>
+            <script src="/c3os/mermaid/mermaid.js?1644871324"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
