@@ -12,22 +12,22 @@
     <title>Device Pairing :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1644873833" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1644876720" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1644876720" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1644876720" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1644873833"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1644876720"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1644873833"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1644873833"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1644876720"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1644876720"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mudler.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1644873833"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1644876720"></script>
 
     
   </div>
@@ -483,6 +483,7 @@
     <li><a href="#prepare-a-configuration-config-file">Prepare a configuration config file</a></li>
     <li><a href="#pair-the-machine">Pair the machine</a></li>
     <li><a href="#join-new-nodes">Join new nodes</a></li>
+    <li><a href="#default-credentials">Default credentials</a></li>
   </ul>
 </nav>
     </div>
@@ -511,20 +512,13 @@
 <div class="notices note" ><p>Only the openSUSE variant supports automatic peer discovery and device pairing.</p>
 </div>
 
-<p>For pairing a c3os node, you will use the <code>c3os</code> CLI which is downloadable as part of the releases from another machine, which will be used to pair a new node.</p>
+<p>For pairing a c3os node, you will use the <code>c3os</code> CLI which is downloadable as part of the releases from another machine, it will be used to pair and install a new node or join a node to an existing cluster.</p>
 <h2 id="start-the-c3os-iso">Start the c3os ISO</h2>
-<p>Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster.
-It doesn&rsquo;t matter if you are joining a node to an existing cluster or creating a new one, the procedure is still the same.</p>
+<p>Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster.</p>
+<p>It doesn&rsquo;t matter if you are joining a node to an existing cluster or creating a new one, the procedure is still the same.</p>
 <p>A GRUB menu will be displayed:</p>
 <p><img src="https://user-images.githubusercontent.com/2420543/153488323-1ab451c3-d6ef-4109-b535-be8a823ba356.png?classes=border,shadow" alt="VirtualBox_test22_10_02_2022_20_56_55"></p>
-<p>The first menu entry starts <code>c3os</code> in <strong>Decentralized Device Pairing</strong> pairing mode, while the second is reserved for manual installations.</p>
-
-<div class="notices note" ><p>If needed to connect over ssh, the system have an hardcoded username/password when booting from the LiveCD:</p>
-<pre tabindex="0"><code>user: c3os
-pass: c3os
-</code></pre><p>Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.</p>
-</div>
-
+<p>The first menu entry starts <code>c3os</code> in <strong>Decentralized Device Pairing</strong> pairing mode and is the default, while the second is reserved for manual installations.</p>
 <p>Once booted the first entry, a boot splash screen will appear, and right after a QR code will be printed out of the screen
 <img src="https://user-images.githubusercontent.com/2420543/153488315-a4290028-b856-436d-a43a-ea0404003fdf.png?classes=border,shadow" alt="VirtualBox_test22_10_02_2022_20_56_29"></p>
 <h2 id="prepare-a-configuration-config-file">Prepare a configuration config file</h2>
@@ -548,15 +542,24 @@ pass: c3os
 
 <p>The configuration config file is in <a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/reference/cloud_init/">cloud-init</a> syntax and you can customize it further to setup the machine behavior.</p>
 <h2 id="pair-the-machine">Pair the machine</h2>
-<p>The VM once booted will print-out a QR code like the following:</p>
+<p>The VM once finished booting will print-out a QR code like the following:</p>
 <p><img src="https://user-images.githubusercontent.com/2420543/153488321-07e63e5f-d9e3-48ce-b551-8b457ece14a9.png?classes=border,shadow" alt="VirtualBox_test22_10_02_2022_20_56_36"></p>
-<p>You can use it to pair the machine, by either providing a photo or by just calling <code>c3os register</code> which will by default take a screenshot:</p>
+<p>You can use now the QR code to pair the machine by either providing a screenshot or photo of it, or by just calling <code>c3os register</code> which will take a screenshot by default:</p>
 <pre tabindex="0"><code>c3os register --reboot --device /dev/sda --config config.yaml
-</code></pre><p>Optionally we can specify an image where to extract the QR code from with:</p>
+</code></pre><p>We can also specify here if the machine after install needs to be rebooted (<code>--reboot</code>) or shut down (<code>--poweroff</code>). The cloud-init configuration file must be provided with the <code>--config</code> flag.</p>
+<p>Optionally we can specify an image where to extract the QR code from, by specifying an image file as argument:</p>
 <pre tabindex="0"><code>c3os register --device /dev/sda --config config.yaml &lt;file.png&gt;
 </code></pre><p>At this point, wait until the pairing is complete and the installation will start automatically in the new node.</p>
 <h2 id="join-new-nodes">Join new nodes</h2>
 <p>To join new nodes, simply re-apply the process to new nodes by specifying the same <code>config.yaml</code> for all the machines. The machines will connect automatically between themselves, either remotely on local network.</p>
+<h2 id="default-credentials">Default credentials</h2>
+<p>If needed to connect over ssh, the system have an hardcoded username/password when booting from the LiveCD:</p>
+<pre tabindex="0"><code>user: c3os
+pass: c3os
+</code></pre>
+<div class="notices note" ><p>Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.</p>
+</div>
+
 
 
 <footer class="footline">
@@ -827,19 +830,19 @@ pass: c3os
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1644873833"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1644873833"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644873833"></script>
-    <script src="/c3os/js/jquery.sticky.js?1644873833"></script>
-    <script src="/c3os/js/featherlight.min.js?1644873833"></script>
-    <script src="/c3os/js/highlight.pack.js?1644873833"></script>
+    <script src="/c3os/js/clipboard.min.js?1644876720"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1644876720"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644876720"></script>
+    <script src="/c3os/js/jquery.sticky.js?1644876720"></script>
+    <script src="/c3os/js/featherlight.min.js?1644876720"></script>
+    <script src="/c3os/js/highlight.pack.js?1644876720"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644873833"></script>
-    <script src="/c3os/js/learn.js?1644873833"></script>
-    <script src="/c3os/js/hugo-learn.js?1644873833"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644876720"></script>
+    <script src="/c3os/js/learn.js?1644876720"></script>
+    <script src="/c3os/js/hugo-learn.js?1644876720"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1644873833"></script>
+            <script src="/c3os/mermaid/mermaid.js?1644876720"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

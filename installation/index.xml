@@ -14,8 +14,8 @@
       
       <guid>https://mudler.github.io/c3os/installation/device_pairing/</guid>
       <description>Only the openSUSE variant supports automatic peer discovery and device pairing.
- For pairing a c3os node, you will use the c3os CLI which is downloadable as part of the releases from another machine, which will be used to pair a new node.
-Start the c3os ISO Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster. It doesn&amp;rsquo;t matter if you are joining a node to an existing cluster or creating a new one, the procedure is still the same.</description>
+ For pairing a c3os node, you will use the c3os CLI which is downloadable as part of the releases from another machine, it will be used to pair and install a new node or join a node to an existing cluster.
+Start the c3os ISO Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster.</description>
     </item>
     
     <item>
