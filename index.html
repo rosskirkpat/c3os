@@ -12,22 +12,22 @@
     <title> :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1644873833" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1644873833" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1644871324"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1644873833"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1644871324"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1644871324"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1644873833"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1644873833"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mudler.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1644871324"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1644873833"></script>
 
     
   </div>
@@ -442,17 +442,21 @@
  
 <p><img src="https://user-images.githubusercontent.com/2420543/153506895-fb978c1e-8197-42e2-9ce2-3be6e0907acc.jpg?classes=shadow&amp;width=50pc" alt="background"></p>
 <h1 id="c3os">C3os</h1>
-<p>C3OS is a lightweight Kubernetes distro that supports automatic node discovery, automatic role assignment and VPN out of the box. C3OS nodes connect autonomously via P2P VPN, without any central server.</p>
-<p>C3OS is focused on creating private disposable distributed kubernetes clusters.</p>
-<p>Configuration and installation is done via Decentralized Device Pairing or via cloud-init.</p>
-<p>c3OS is:</p>
+<p>C3OS is a lightweight Kubernetes GNU/Linux distro that supports automatic node discovery, automatic role assignment and VPN out of the box with no kubernetes networking configuration required.</p>
+<p>C3OS creates multi-nodes Kubernetes cluster that connects autonomously in a hybrid P2P VPN which bridges nodes without any central server also behind nat.</p>
 <ul>
-<li>Immutable</li>
-<li>cloud-init driven</li>
-<li>P2P first</li>
-<li>Automatized in every aspect</li>
+<li>No infrastructure is required. C3OS can be used to bootstrap a cluster entirely from the ground-up.</li>
+<li>LAN, remote networks, multi-region/zones, NAT - No network configuration or opening port outside is required. Nodes will connect each other via holepunching and using hops wherever necessary.</li>
+<li>Zero kubernetes configuration - Nodes autonomously discover and configure themselves to form a Kubernetes cluster. The same configuration/bootstrapping process applies wether creating new clusters or joining nodes to existing one.</li>
 </ul>
-<p>By default cluster nodes are connected each other via a p2p VPN which will also coordinates and prepare the nodes roles automatically, transparently to the user. There is no central server needed, and nodes will try to automatically connect each other by holepunching, snatting, and creating intermediate hops as necessary.</p>
+<p>Configuration and installation is done via <strong>Decentralized Device Pairing</strong> or <strong>cloud-init</strong> for manual/automated mass-installs.</p>
+<p>c3OS have:</p>
+<ul>
+<li>an Immutable layout</li>
+<li>cloud-init support</li>
+<li>P2P layer</li>
+<li>Strong enphasis on automation - the only configuration which is required is to generate a network token</li>
+</ul>
 <p>c3OS is composed of:</p>
 <ul>
 <li><a href="https://k3s.io">k3s</a> as a Kubernetes distribution</li>
@@ -718,19 +722,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1644871324"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1644871324"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644871324"></script>
-    <script src="/c3os/js/jquery.sticky.js?1644871324"></script>
-    <script src="/c3os/js/featherlight.min.js?1644871324"></script>
-    <script src="/c3os/js/highlight.pack.js?1644871324"></script>
+    <script src="/c3os/js/clipboard.min.js?1644873833"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1644873833"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644873833"></script>
+    <script src="/c3os/js/jquery.sticky.js?1644873833"></script>
+    <script src="/c3os/js/featherlight.min.js?1644873833"></script>
+    <script src="/c3os/js/highlight.pack.js?1644873833"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644871324"></script>
-    <script src="/c3os/js/learn.js?1644871324"></script>
-    <script src="/c3os/js/hugo-learn.js?1644871324"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644873833"></script>
+    <script src="/c3os/js/learn.js?1644873833"></script>
+    <script src="/c3os/js/hugo-learn.js?1644873833"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1644871324"></script>
+            <script src="/c3os/mermaid/mermaid.js?1644873833"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

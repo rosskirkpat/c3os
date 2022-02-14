@@ -12,22 +12,22 @@
     <title>Troubleshooting :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1644871324" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1644873833" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1644873833" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1644871324" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1644873833" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1644871324"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1644873833"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1644871324"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1644871324"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1644873833"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1644873833"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mudler.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1644871324"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1644873833"></script>
 
     
   </div>
@@ -477,7 +477,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#get-kubeconfig">Get kubeconfig</a></li>
+    <li><a href="#connect-to-the-cluster-network">Connect to the cluster network</a></li>
+    <li><a href="#setup-process">Setup process</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -500,12 +506,12 @@
         
 
 
-<h1 id="get-kubeconfig">Get kubeconfig</h1>
+<h2 id="get-kubeconfig">Get kubeconfig</h2>
 <p>On all nodes of the cluster it&rsquo;s possible to invoke <code>c3os get-kubeconfig</code> to recover the kubeconfig file</p>
-<h1 id="connect-to-the-cluster-network">Connect to the cluster network</h1>
+<h2 id="connect-to-the-cluster-network">Connect to the cluster network</h2>
 <p>Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of <a href="https://github.com/mudler/edgevpn">edgevpn</a> networks, and thus can be used to connect to. Refer to the <a href="https://mudler.github.io/edgevpn/docs/getting-started/cli/">edgeVPN</a> documentation on how to connect to the VPN, but it boils down to run <code>edgevpn</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">EDGEVPNTOKEN<span style="color:#f92672">=</span>&lt;network_token&gt; edgevpn --dhcp
-</code></pre></div><h1 id="setup-process">Setup process</h1>
+</code></pre></div><h2 id="setup-process">Setup process</h2>
 <p><code>c3os</code> node at first boot will start the <code>c3os-setup</code> service, you can always check what&rsquo;s happening by running <code>journalctl -fu c3os-setup</code>.</p>
 <p>This service will setup <code>k3s</code> and <code>edgevpn</code> dynamically on first-boot, once it configures the machine it does not run on boot anymore, unless <code>/usr/local/.c3os/deployed</code> is removed..</p>
 <p>Those are the steps executed in sequence by the <code>c3os-setup</code> service:</p>
@@ -784,19 +790,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1644871324"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1644871324"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644871324"></script>
-    <script src="/c3os/js/jquery.sticky.js?1644871324"></script>
-    <script src="/c3os/js/featherlight.min.js?1644871324"></script>
-    <script src="/c3os/js/highlight.pack.js?1644871324"></script>
+    <script src="/c3os/js/clipboard.min.js?1644873833"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1644873833"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1644873833"></script>
+    <script src="/c3os/js/jquery.sticky.js?1644873833"></script>
+    <script src="/c3os/js/featherlight.min.js?1644873833"></script>
+    <script src="/c3os/js/highlight.pack.js?1644873833"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644871324"></script>
-    <script src="/c3os/js/learn.js?1644871324"></script>
-    <script src="/c3os/js/hugo-learn.js?1644871324"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1644873833"></script>
+    <script src="/c3os/js/learn.js?1644873833"></script>
+    <script src="/c3os/js/hugo-learn.js?1644873833"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1644871324"></script>
+            <script src="/c3os/mermaid/mermaid.js?1644873833"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
