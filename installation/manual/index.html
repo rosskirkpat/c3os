@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/c3os/images/favicon.png" type="image/png">
 
-    <title>Upgrades :: c3os</title>
+    <title>Manual installation :: c3os</title>
 
     
     <link href="/c3os/css/nucleus.css?1644959495" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/c3os/after_install/upgrades/">
+  <body class="" data-url="/c3os/installation/manual/">
     <nav id="sidebar" class="">
 
 
@@ -180,7 +180,7 @@
   
     
     <li data-nav-id="/c3os/installation/" title="Installation" class="dd-item
-        
+        parent
         
         
         ">
@@ -248,7 +248,7 @@
  
   
     
-      <li data-nav-id="/c3os/installation/manual/" title="Manual installation" class="dd-item ">
+      <li data-nav-id="/c3os/installation/manual/" title="Manual installation" class="dd-item active">
         <a href="/c3os/installation/manual/">
         <b>- </b>Manual installation
         
@@ -319,7 +319,7 @@
   
     
     <li data-nav-id="/c3os/after_install/" title="After install" class="dd-item
-        parent
+        
         
         
         ">
@@ -345,7 +345,7 @@
  
   
     
-      <li data-nav-id="/c3os/after_install/upgrades/" title="Upgrades" class="dd-item active">
+      <li data-nav-id="/c3os/after_install/upgrades/" title="Upgrades" class="dd-item ">
         <a href="/c3os/after_install/upgrades/">
         <b>- </b>Upgrades
         
@@ -454,7 +454,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/mudler/c3os/edit/master/docs/content/after_install/upgrades.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/mudler/c3os/edit/master/docs/content/installation/manual.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -485,7 +485,7 @@
             
           
           
-            <a href='/c3os/'></a> > <a href='/c3os/after_install/'>After install</a> > Upgrades
+            <a href='/c3os/'></a> > <a href='/c3os/installation/'>Installation</a> > Manual installation
           
         
           
@@ -500,8 +500,8 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes">Kubernetes</a></li>
-    <li><a href="#manual">Manual</a></li>
+    <li><a href="#default-credentials">Default credentials</a></li>
+    <li><a href="#manual-k3s-configuration">Manual K3s configuration</a></li>
   </ul>
 </nav>
     </div>
@@ -519,19 +519,34 @@
           
             <h1>
               
-              Upgrades
+              Manual installation
             </h1>
           
 
         
 
 
-<h2 id="kubernetes">Kubernetes</h2>
-<p>Upgrades can be triggered from Kubernetes with <code>system-upgrade-controller</code> installed in your cluster. <a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#integration-with-system-upgrade-controller">See the cOS documentation</a></p>
-<h2 id="manual">Manual</h2>
-<p>Upgrades can be triggered manually as well from the nodes, for example, run the following as root:</p>
-<pre tabindex="0"><code>cos-upgrade --no-verify --no-cosign --docker-image quay.io/mudler/c3os:opensuse-v1.21.4-22
-</code></pre><p><a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#upgrade-to-a-specific-container-image">See also the cOS documentation</a></p>
+<p>Manual installation is available as well aside of pairing and automated installation.</p>
+<h2 id="default-credentials">Default credentials</h2>
+<p>If needed to connect over ssh, the system have an hardcoded username/password when booting from the LiveCD:</p>
+<pre tabindex="0"><code>user: c3os
+pass: c3os
+</code></pre>
+<div class="notices note" ><p>Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.</p>
+</div>
+
+<p>Login over SSH or via console and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cos-installer --config $CONFIG
+</code></pre></div><p>Where the config can be a cloud-init file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#cloud-init</span>
+
+<span style="color:#f92672">c3os</span>:
+  <span style="color:#f92672">network_token</span>: <span style="color:#ae81ff">....</span>
+
+<span style="color:#75715e"># extra configuration</span>
+</code></pre></div><h2 id="manual-k3s-configuration">Manual K3s configuration</h2>
+<p>Automatic nodes configuration can be disabled by not specifying a <code>network_token</code> in the configuration file.</p>
+<p>In that case no VPN and k3s is configured automatically, see the <a href="https://github.com/mudler/c3os/tree/master/examples">examples</a> to configure k3s manually.</p>
 
 
 <footer class="footline">
@@ -636,6 +651,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -648,6 +664,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -681,6 +700,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -708,6 +747,22 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -724,47 +779,10 @@
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -805,10 +823,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/c3os/after_install/" title="After install"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/c3os/installation/automated/" title="Automated installation"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/c3os/after_install/paths/" title="Paths" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/c3os/installation/configuration/" title="Configuration reference" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

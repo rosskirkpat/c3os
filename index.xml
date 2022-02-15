@@ -85,13 +85,16 @@ The CLI can be used from an external machine to generate network tokens and pair
     </item>
     
     <item>
-      <title>Take over installation</title>
-      <link>https://mudler.github.io/c3os/installation/takeover/</link>
+      <title>Manual installation</title>
+      <link>https://mudler.github.io/c3os/installation/manual/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/installation/takeover/</guid>
-      <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
- From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
+      <guid>https://mudler.github.io/c3os/installation/manual/</guid>
+      <description>Manual installation is available as well aside of pairing and automated installation.
+Default credentials If needed to connect over ssh, the system have an hardcoded username/password when booting from the LiveCD:
+user: c3os pass: c3os  Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.
+ Login over SSH or via console and run:
+cos-installer --config $CONFIG Where the config can be a cloud-init file:</description>
     </item>
     
     <item>
@@ -112,6 +115,16 @@ Connect to the cluster network Network tokens can be used to connect to the VPN 
       <guid>https://mudler.github.io/c3os/installation/configuration/</guid>
       <description>A c3os node during pairing or either automated install can be configured via a single configuration file.
 c3os: network_token: &amp;#34;....&amp;#34; # Device for offline installs device: &amp;#34;/dev/sda&amp;#34; # Reboot after installation reboot: true # Power off after installation poweroff: true # Set to true when installing without Pairing offline: true vpn: # EdgeVPN environment options DHCP: &amp;#34;true&amp;#34; # Disable DHT (for airgap) EDGEVPNDHT: &amp;#34;false&amp;#34; EDGEVPNMAXCONNS: &amp;#34;200&amp;#34; # See all EDGEVPN options: # - https://github.</description>
+    </item>
+    
+    <item>
+      <title>Take over installation</title>
+      <link>https://mudler.github.io/c3os/installation/takeover/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://mudler.github.io/c3os/installation/takeover/</guid>
+      <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
+ From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
     </item>
     
   </channel>
