@@ -114,7 +114,7 @@ Connect to the cluster network Network tokens can be used to connect to the VPN 
       
       <guid>https://mudler.github.io/c3os/installation/configuration/</guid>
       <description>A c3os node during pairing or either automated install can be configured via a single configuration file.
-c3os: network_token: &amp;#34;....&amp;#34; # Device for offline installs device: &amp;#34;/dev/sda&amp;#34; # Reboot after installation reboot: true # Power off after installation poweroff: true # Set to true when installing without Pairing offline: true vpn: # EdgeVPN environment options DHCP: &amp;#34;true&amp;#34; # Disable DHT (for airgap) EDGEVPNDHT: &amp;#34;false&amp;#34; EDGEVPNMAXCONNS: &amp;#34;200&amp;#34; # See all EDGEVPN options: # - https://github.</description>
+c3os: network_token: &amp;#34;....&amp;#34; # Device for offline installs device: &amp;#34;/dev/sda&amp;#34; # Reboot after installation reboot: true # Power off after installation poweroff: true # Set to true when installing without Pairing offline: true # Manually set node role. Available: master, worker. Defaults auto (none) role: &amp;#34;master&amp;#34; vpn: # EdgeVPN environment options DHCP: &amp;#34;true&amp;#34; # Disable DHT (for airgap) EDGEVPNDHT: &amp;#34;false&amp;#34; EDGEVPNMAXCONNS: &amp;#34;200&amp;#34; # See all EDGEVPN options: # - https://github.</description>
     </item>
     
     <item>
