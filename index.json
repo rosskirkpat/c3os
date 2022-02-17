@@ -1,118 +1,118 @@
 [
 {
-	"uri": "https://mudler.github.io/c3os/basics/architecture/",
+	"uri": "https://c3os-io.github.io/c3os/basics/architecture/",
 	"title": "Architecture",
 	"tags": [],
 	"description": "",
 	"content": "C3OS comes as ISO and as a CLI which can be downloaded from the release page. The CLI setups k3s and is also used to automatically register nodes in a private, user-defined network.\nCurrently Alpine-based and openSUSE-based flavors are available, the openSUSE-based flavor supports autonomous kubernetes bootstrapping with the c3os CLI.\nC3OS nodes based on openSUSE autonomously connect and configure each other via P2P, no network setup and no central server is needed.\nNodes can discovery each other also if they are in different networks and behind NAT.\nc3OS uses edgevpn to coordinate, automatically discover/configure and establish a p2p vpn network between the cluster nodes.\nThe connection happens in 3 stages, where the discovery is driven by DHT and mDNS (which can be selectively disabled/enabled)\n Discovery Gossip network Full connectivity  The initial installation is done with pairing via QR code. A QR code is displayed when booting from ISO, to allow deployment on situations where sending files or connecting remotely is inconvienent.\nFor mass-installation cloud-init can be used to drive automated installs.\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/basics/",
+	"uri": "https://c3os-io.github.io/c3os/basics/",
 	"title": "Basics",
 	"tags": [],
 	"description": "",
 	"content": "Basics Layout, Architecture, the CLI C3OS is a GNU/Linux distribution which is focused on bringing k3s on distributed environments with as less friction as possible.\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/installation/device_pairing/",
+	"uri": "https://c3os-io.github.io/c3os/installation/device_pairing/",
 	"title": "Device Pairing",
 	"tags": [],
 	"description": "",
 	"content": " Only the openSUSE variant supports automatic peer discovery and device pairing.\n For pairing a c3os node, you will use the c3os CLI which is downloadable as part of the releases from another machine, it will be used to pair and install a new node or join a node to an existing cluster.\nStart the c3os ISO Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster.\nIt doesn\u0026rsquo;t matter if you are joining a node to an existing cluster or creating a new one, the procedure is still the same.\nA GRUB menu will be displayed:\nThe first menu entry starts c3os in Decentralized Device Pairing pairing mode and is the default, while the second is reserved for manual installations.\nOnce booted the first entry, a boot splash screen will appear, and right after a QR code will be printed out of the screen Prepare a configuration config file In the machine you are using for bootstrapping (your workstation, a jumpbox, or ..)\nCreate a config file like the following, for example config.yaml:\nstages: network: - name: \u0026#34;Setup users\u0026#34; authorized_keys: c3os: - github:mudler c3os: network_token: \u0026#34;....\u0026#34; # Optionally, set a network id (for multiple clusters in the same network) # network_id: \u0026#34;dev\u0026#34; # Optionally set a role # role: \u0026#34;master\u0026#34;  If you are creating a new cluster, you need to create a new network token with the c3os CLI: c3os generate-token\n The configuration config file is in cloud-init syntax and you can customize it further to setup the machine behavior.\nPair the machine The VM once finished booting will print-out a QR code like the following:\nYou can use now the QR code to pair the machine by either providing a screenshot or photo of it, or by just calling c3os register which will take a screenshot by default:\nc3os register --reboot --device /dev/sda --config config.yaml We can also specify here if the machine after install needs to be rebooted (--reboot) or shut down (--poweroff). The cloud-init configuration file must be provided with the --config flag.\nOptionally we can specify an image where to extract the QR code from, by specifying an image file as argument:\nc3os register --device /dev/sda --config config.yaml \u0026lt;file.png\u0026gt; At this point, wait until the pairing is complete and the installation will start automatically in the new node.\nJoin new nodes To join new nodes, simply re-apply the process to new nodes by specifying the same config.yaml for all the machines. The machines will connect automatically between themselves, either remotely on local network.\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/after_install/upgrades/",
+	"uri": "https://c3os-io.github.io/c3os/after_install/upgrades/",
 	"title": "Upgrades",
 	"tags": [],
 	"description": "",
-	"content": "Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation\nManual Upgrades can be triggered manually as well from the nodes, for example, run the following as root:\ncos-upgrade --no-verify --no-cosign --docker-image quay.io/mudler/c3os:opensuse-v1.21.4-22 See also the cOS documentation\n"
+	"content": "Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation\nManual Upgrades can be triggered manually as well from the nodes, for example, run the following as root:\ncos-upgrade --no-verify --no-cosign --docker-image quay.io/c3os/c3os:opensuse-v1.21.4-22 c3os images are released on quay.io.\nSee also the cOS documentation\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/installation/automated/",
+	"uri": "https://c3os-io.github.io/c3os/installation/automated/",
 	"title": "Automated installation",
 	"tags": [],
 	"description": "",
 	"content": "Automated installation is available as well aside of manual pairing.\nA cloud-init of the following form can be supplied as a datasource (CDROM, etc.):\n#cloud-init c3os: device: \u0026#34;/dev/sda\u0026#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/installation/",
+	"uri": "https://c3os-io.github.io/c3os/installation/",
 	"title": "Installation",
 	"tags": [],
 	"description": "",
 	"content": "Installing c3os on baremetal, VMs, \u0026hellip; Automated, Paired and take over install "
 },
 {
-	"uri": "https://mudler.github.io/c3os/basics/layout/",
+	"uri": "https://c3os-io.github.io/c3os/basics/layout/",
 	"title": "Layout",
 	"tags": [],
 	"description": "",
 	"content": "c3OS is an immutable Distribution, built with the cOS-toolkit.\nBy default, c3OS uses an immutable setup.\nA running system will look like as follows:\n/usr/local - persistent (COS_PERSISTENT) /oem - persistent (COS_OEM) /etc - ephemeral /usr - read only / immutable See also cOS docs.\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/after_install/paths/",
+	"uri": "https://c3os-io.github.io/c3os/after_install/paths/",
 	"title": "Paths",
 	"tags": [],
 	"description": "",
 	"content": "The following paths are relevant for c3os:\n   Path Description     /usr/local/.c3os/deployed Sentinel file written after bootstrapping is complete. Remove to retrigger automatic bootstrap   /usr/local/.c3os/lease IP Lease of the node in the network. Delete to change IP address of the node    "
 },
 {
-	"uri": "https://mudler.github.io/c3os/after_install/",
+	"uri": "https://c3os-io.github.io/c3os/after_install/",
 	"title": "After install",
 	"tags": [],
 	"description": "",
 	"content": "I\u0026rsquo;m in, what now? See how to upgrade, and how to manage a c3os installation\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/basics/cli/",
+	"uri": "https://c3os-io.github.io/c3os/basics/cli/",
 	"title": "CLI",
 	"tags": [],
 	"description": "",
 	"content": "A CLI is provided as part of releases associated to each c3os version.\nThe CLI can be used from an external machine to generate network tokens and pair nodes on first-boot.\n./c3os --help NAME: c3os - c3os (register|install) USAGE: [global options] command [command options] [arguments...] VERSION: 0.1 DESCRIPTION: c3os registers and installs c3os boxes AUTHOR: Ettore Di Giacinto COMMANDS: register create-config, c generate-token, g setup, s get-kubeconfig install, i help, h Shows a list of commands or help for one command create-config Generates a new c3os configuration file which can be used as cloud-init, with a new unique network token:\n$ ./c3os create-config c3os: network_token: b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IEVCMzJJMlNXTjJCNFBHNEtCWTNBUVBBS0FWRTY0Q0VLVUlDTktTUFVWVU5BWTM0QklEQ0EKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBDMk1RRk5DWEFVRElPWjVHM1pZUUIzVEVHTzVXVEdQR1pZSEVQQkY3SFEyVUROUlZCTkxRCiAgICBsZW5ndGg6IDMyCnJvb206IGp6Q29kQVVOWUZSUklQU3JISmx4d1BVUnVxTGJQQnh4CnJlbmRlenZvdXM6IG5NckRCbllyVVBMdnFPV0Z2dWZvTktXek1adEJIRmpzCm1kbnM6IGpQUUhIbVZza2x6V29xbWNkeVlnbVhMSVFjTE1HUFN6Cm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg== offline: false reboot: false device: \u0026quot;\u0026quot; poweroff: false Now you can use this in your configuration file to create new c3os nodes:\nc3os: network_token: b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IEVCMzJJMlNXTjJCNFBHNEtCWTNBUVBBS0FWRTY0Q0VLVUlDTktTUFVWVU5BWTM0QklEQ0EKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBDMk1RRk5DWEFVRElPWjVHM1pZUUIzVEVHTzVXVEdQR1pZSEVQQkY3SFEyVUROUlZCTkxRCiAgICBsZW5ndGg6IDMyCnJvb206IGp6Q29kQVVOWUZSUklQU3JISmx4d1BVUnVxTGJQQnh4CnJlbmRlenZvdXM6IG5NckRCbllyVVBMdnFPV0Z2dWZvTktXek1adEJIRmpzCm1kbnM6IGpQUUhIbVZza2x6V29xbWNkeVlnbVhMSVFjTE1HUFN6Cm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg== offline: false reboot: false device: \u0026#34;\u0026#34; poweroff: false # Cloud init syntax to setup users.  # See https://rancher-sandbox.github.io/cos-toolkit-docs/docs/reference/cloud_init/ stages: network: - name: \u0026#34;Setup users\u0026#34; authorized_keys: c3os: - github:yourhandle! generate-token Generates a new network token which can be used in a configuration file:\n$ ./c3os generate-token b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IFhMMjRYUk1MTlFOQ1pJQTU0SVFLQ1laMk83SENQWEFBU1ZKN0tZSTQ3MzVaUkpKSktRSEEKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBMR1dMWFBTUllaU0ZERDdOT0pBNzdKV0ZWQjRHVkZBMjJIWlZPWU1VT0lNSFVYNFZXUURRCiAgICBsZW5ndGg6IDMyCnJvb206IFRtcUt5VnFHQ1ZZam9TRm9CTEVNRGVEdmJzelBkVEdoCnJlbmRlenZvdXM6IGttb3J4Q21sY2NjVVppWmdkSW5xTERvTGJtS3ZGdm9mCm1kbnM6IEZkWVdQc2R4aHdvWHZlb0VzSXNnVHRXbEJUbE9IVHJmCm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg== And now:\nc3os: network_token: b3RwOgogIGRodDoKICAgIGludGVydmFsOiA5MjIzMzcyMDM2ODU0Nzc1ODA3CiAgICBrZXk6IFhMMjRYUk1MTlFOQ1pJQTU0SVFLQ1laMk83SENQWEFBU1ZKN0tZSTQ3MzVaUkpKSktRSEEKICAgIGxlbmd0aDogMzIKICBjcnlwdG86CiAgICBpbnRlcnZhbDogOTIyMzM3MjAzNjg1NDc3NTgwNwogICAga2V5OiBMR1dMWFBTUllaU0ZERDdOT0pBNzdKV0ZWQjRHVkZBMjJIWlZPWU1VT0lNSFVYNFZXUURRCiAgICBsZW5ndGg6IDMyCnJvb206IFRtcUt5VnFHQ1ZZam9TRm9CTEVNRGVEdmJzelBkVEdoCnJlbmRlenZvdXM6IGttb3J4Q21sY2NjVVppWmdkSW5xTERvTGJtS3ZGdm9mCm1kbnM6IEZkWVdQc2R4aHdvWHZlb0VzSXNnVHRXbEJUbE9IVHJmCm1heF9tZXNzYWdlX3NpemU6IDIwOTcxNTIwCg== offline: false reboot: false device: \u0026#34;\u0026#34; poweroff: false # Cloud init syntax to setup users.  # See https://rancher-sandbox.github.io/cos-toolkit-docs/docs/reference/cloud_init/ stages: network: - name: \u0026#34;Setup users\u0026#34; authorized_keys: c3os: - github:yourhandle! register The register command can be used to register and drive installation of nodes via QR code with a cloud-init config file ( with --config).\nNAME: register - USAGE: register [command options] [arguments...] OPTIONS: --config value --device value --reboot --poweroff When booting c3os via ISO, the boot process ends up in displaying a QR code which can be parsed by c3os register from another machine.\nTaking a screenshot register by default takes a screenshot and tries to find a QR code in it:\nc3os register Providing a qrcode image/screenshot manually It can be also be specified an image:\nc3os register \u0026lt;file.png\u0026gt; After the pairing is done, the node will start installation with the provided options.\nA --device and a --config file are required in order to have a functional installation.\ninstall Called by c3os nodes on boot and not meant to be used manually. It kicks in the installation and the QR pairing process.\nsetup Called by c3os nodes on boot and not meant to be used manually. It prepares edgevpn and k3s bootstrapping the node and the VPN.\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/installation/manual/",
+	"uri": "https://c3os-io.github.io/c3os/installation/manual/",
 	"title": "Manual installation",
 	"tags": [],
 	"description": "",
 	"content": "Manual installation is available as well aside of pairing and automated installation.\nDefault credentials If needed to connect over ssh, the system have an hardcoded username/password when booting from the LiveCD:\nuser: c3os pass: c3os  Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.\n Login over SSH or via console and run:\ncos-installer --config $CONFIG Where the config can be a cloud-init file:\n#cloud-init c3os: network_token: .... # extra configuration Manual K3s configuration Automatic nodes configuration can be disabled by not specifying a network_token in the configuration file.\nIn that case no VPN and k3s is configured automatically, see the examples to configure k3s manually.\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/after_install/troubleshooting/",
+	"uri": "https://c3os-io.github.io/c3os/after_install/troubleshooting/",
 	"title": "Troubleshooting",
 	"tags": [],
 	"description": "",
 	"content": "Get kubeconfig On all nodes of the cluster it\u0026rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file\nConnect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to. Refer to the edgeVPN documentation on how to connect to the VPN, but it boils down to run edgevpn:\nEDGEVPNTOKEN=\u0026lt;network_token\u0026gt; edgevpn --dhcp Setup process c3os node at first boot will start the c3os-setup service, you can always check what\u0026rsquo;s happening by running journalctl -fu c3os-setup.\nThis service will setup k3s and edgevpn dynamically on first-boot, once it configures the machine it does not run on boot anymore, unless /usr/local/.c3os/deployed is removed..\nThose are the steps executed in sequence by the c3os-setup service:\n Will create a edgevpn@c3os service and enabled on start. The configuration for the connection is stored in /etc/systemd/system.conf.d/edgevpn-c3os.env and depends on the cloud-init configuration file provided during installation time Automatic role negotiation starts, nodes will co-ordinate for an IP and a role Once roles are defined a node will either set the k3s or k3s-agent service. Configuration for each service is stored in /etc/sysconfig/k3s and /etc/sysconfig/k3s-agent respectively  "
 },
 {
-	"uri": "https://mudler.github.io/c3os/installation/configuration/",
+	"uri": "https://c3os-io.github.io/c3os/installation/configuration/",
 	"title": "Configuration reference",
 	"tags": [],
 	"description": "",
 	"content": "A c3os node during pairing or either automated install can be configured via a single configuration file.\nc3os: network_token: \u0026#34;....\u0026#34; # Device for offline installs device: \u0026#34;/dev/sda\u0026#34; # Reboot after installation reboot: true # Power off after installation poweroff: true # Set to true when installing without Pairing offline: true # Manually set node role. Available: master, worker. Defaults auto (none) role: \u0026#34;master\u0026#34; # User defined network-id. Can be used to have multiple clusters in the same network network_id: \u0026#34;dev\u0026#34; vpn: # EdgeVPN environment options DHCP: \u0026#34;true\u0026#34; # Disable DHT (for airgap) EDGEVPNDHT: \u0026#34;false\u0026#34; EDGEVPNMAXCONNS: \u0026#34;200\u0026#34; # If DHCP is enabled, it\u0026#39;s the starting IP ADDRESS: \u0026#34;10.2.0.30/24\u0026#34; # See all EDGEVPN options: # - https://github.com/mudler/edgevpn/blob/master/cmd/util.go#L33 # - https://github.com/mudler/edgevpn/blob/master/cmd/main.go#L48 # Cloud init syntax to setup users.  # See https://rancher-sandbox.github.io/cos-toolkit-docs/docs/reference/cloud_init/ stages: network: - name: \u0026#34;Setup users\u0026#34; authorized_keys: c3os: - github:mudler Syntax c3os supports the standard cloud-init syntax and the extended one from the cOS toolkit.\nExamples using the extended notation for running k3s as agent or server are in examples.\nDatasource The configuration file can also be used to drive automated installation and deployments by mounting an ISO in the node with the cidata label. The ISO must contain a user-data (which contain your configuration) and meta-data file.\n"
 },
 {
-	"uri": "https://mudler.github.io/c3os/installation/takeover/",
+	"uri": "https://c3os-io.github.io/c3os/installation/takeover/",
 	"title": "Take over installation",
 	"tags": [],
 	"description": "",
-	"content": "c3os supports takeover installations, see also the cOS docs here are few summarized steps:\n From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  "
+	"content": "c3os supports takeover installations, see also the cOS docs here are few summarized steps:\n From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/c3os/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  "
 },
 {
-	"uri": "https://mudler.github.io/c3os/",
+	"uri": "https://c3os-io.github.io/c3os/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": "C3os C3OS is a lightweight Kubernetes GNU/Linux distro that supports automatic node discovery, automatic role assignment and VPN out of the box with no kubernetes networking configuration required.\nC3OS creates multi-nodes Kubernetes cluster with k3s that connects autonomously in a hybrid P2P VPN which bridges nodes without any central server also behind nat.\n No infrastructure is required. C3OS can be used to bootstrap a cluster entirely from the ground-up. LAN, remote networks, multi-region/zones, NAT - No network configuration or opening port outside is required. Nodes will connect each other via holepunching and using hops wherever necessary. Zero kubernetes configuration - Nodes autonomously discover and configure themselves to form a Kubernetes cluster. The same configuration/bootstrapping process applies wether creating new clusters or joining nodes to existing one.  Configuration and installation is done via Decentralized Device Pairing or cloud-init for manual/automated mass-installs.\nc3OS have:\n an Immutable layout cloud-init support P2P layer Strong enphasis on automation - the only configuration which is required is to generate a network token  c3OS is composed of:\n k3s as a Kubernetes distribution edgevpn as fabric for the distributed network, node coordination and bootstrap cOS-toolkit as a fundament to build the Linux derivative. Indeed, any cOS docs applies to c3os as well. nohang A sophisticated low memory handler for Linux  "
 },
 {
-	"uri": "https://mudler.github.io/c3os/categories/",
+	"uri": "https://c3os-io.github.io/c3os/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://mudler.github.io/c3os/tags/",
+	"uri": "https://c3os-io.github.io/c3os/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",

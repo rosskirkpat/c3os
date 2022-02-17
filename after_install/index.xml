@@ -2,38 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>After install on c3os</title>
-    <link>https://mudler.github.io/c3os/after_install/</link>
+    <link>https://c3os-io.github.io/c3os/after_install/</link>
     <description>Recent content in After install on c3os</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://mudler.github.io/c3os/after_install/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://c3os-io.github.io/c3os/after_install/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Upgrades</title>
-      <link>https://mudler.github.io/c3os/after_install/upgrades/</link>
+      <link>https://c3os-io.github.io/c3os/after_install/upgrades/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/after_install/upgrades/</guid>
+      <guid>https://c3os-io.github.io/c3os/after_install/upgrades/</guid>
       <description>Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation
 Manual Upgrades can be triggered manually as well from the nodes, for example, run the following as root:
-cos-upgrade --no-verify --no-cosign --docker-image quay.io/mudler/c3os:opensuse-v1.21.4-22 See also the cOS documentation</description>
+cos-upgrade --no-verify --no-cosign --docker-image quay.io/c3os/c3os:opensuse-v1.21.4-22 c3os images are released on quay.io.
+See also the cOS documentation</description>
     </item>
     
     <item>
       <title>Paths</title>
-      <link>https://mudler.github.io/c3os/after_install/paths/</link>
+      <link>https://c3os-io.github.io/c3os/after_install/paths/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/after_install/paths/</guid>
+      <guid>https://c3os-io.github.io/c3os/after_install/paths/</guid>
       <description>The following paths are relevant for c3os:
    Path Description     /usr/local/.c3os/deployed Sentinel file written after bootstrapping is complete. Remove to retrigger automatic bootstrap   /usr/local/.c3os/lease IP Lease of the node in the network. Delete to change IP address of the node    </description>
     </item>
     
     <item>
       <title>Troubleshooting</title>
-      <link>https://mudler.github.io/c3os/after_install/troubleshooting/</link>
+      <link>https://c3os-io.github.io/c3os/after_install/troubleshooting/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/after_install/troubleshooting/</guid>
+      <guid>https://c3os-io.github.io/c3os/after_install/troubleshooting/</guid>
       <description>Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
 Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to. Refer to the edgeVPN documentation on how to connect to the VPN, but it boils down to run edgevpn:</description>
     </item>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Basics on c3os</title>
-    <link>https://mudler.github.io/c3os/basics/</link>
+    <link>https://c3os-io.github.io/c3os/basics/</link>
     <description>Recent content in Basics on c3os</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://mudler.github.io/c3os/basics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://c3os-io.github.io/c3os/basics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Architecture</title>
-      <link>https://mudler.github.io/c3os/basics/architecture/</link>
+      <link>https://c3os-io.github.io/c3os/basics/architecture/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/basics/architecture/</guid>
+      <guid>https://c3os-io.github.io/c3os/basics/architecture/</guid>
       <description>C3OS comes as ISO and as a CLI which can be downloaded from the release page. The CLI setups k3s and is also used to automatically register nodes in a private, user-defined network.
 Currently Alpine-based and openSUSE-based flavors are available, the openSUSE-based flavor supports autonomous kubernetes bootstrapping with the c3os CLI.
 C3OS nodes based on openSUSE autonomously connect and configure each other via P2P, no network setup and no central server is needed.</description>
@@ -20,10 +20,10 @@ C3OS nodes based on openSUSE autonomously connect and configure each other via P
     
     <item>
       <title>Layout</title>
-      <link>https://mudler.github.io/c3os/basics/layout/</link>
+      <link>https://c3os-io.github.io/c3os/basics/layout/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/basics/layout/</guid>
+      <guid>https://c3os-io.github.io/c3os/basics/layout/</guid>
       <description>c3OS is an immutable Distribution, built with the cOS-toolkit.
 By default, c3OS uses an immutable setup.
 A running system will look like as follows:
@@ -32,10 +32,10 @@ A running system will look like as follows:
     
     <item>
       <title>CLI</title>
-      <link>https://mudler.github.io/c3os/basics/cli/</link>
+      <link>https://c3os-io.github.io/c3os/basics/cli/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/basics/cli/</guid>
+      <guid>https://c3os-io.github.io/c3os/basics/cli/</guid>
       <description>A CLI is provided as part of releases associated to each c3os version.
 The CLI can be used from an external machine to generate network tokens and pair nodes on first-boot.
 ./c3os --help NAME: c3os - c3os (register|install) USAGE: [global options] command [command options] [arguments...] VERSION: 0.1 DESCRIPTION: c3os registers and installs c3os boxes AUTHOR: Ettore Di Giacinto COMMANDS: register create-config, c generate-token, g setup, s get-kubeconfig install, i help, h Shows a list of commands or help for one command create-config Generates a new c3os configuration file which can be used as cloud-init, with a new unique network token:</description>

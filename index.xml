@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>c3os</title>
-    <link>https://mudler.github.io/c3os/</link>
+    <link>https://c3os-io.github.io/c3os/</link>
     <description>Recent content on c3os</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://mudler.github.io/c3os/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://c3os-io.github.io/c3os/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Architecture</title>
-      <link>https://mudler.github.io/c3os/basics/architecture/</link>
+      <link>https://c3os-io.github.io/c3os/basics/architecture/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/basics/architecture/</guid>
+      <guid>https://c3os-io.github.io/c3os/basics/architecture/</guid>
       <description>C3OS comes as ISO and as a CLI which can be downloaded from the release page. The CLI setups k3s and is also used to automatically register nodes in a private, user-defined network.
 Currently Alpine-based and openSUSE-based flavors are available, the openSUSE-based flavor supports autonomous kubernetes bootstrapping with the c3os CLI.
 C3OS nodes based on openSUSE autonomously connect and configure each other via P2P, no network setup and no central server is needed.</description>
@@ -20,10 +20,10 @@ C3OS nodes based on openSUSE autonomously connect and configure each other via P
     
     <item>
       <title>Device Pairing</title>
-      <link>https://mudler.github.io/c3os/installation/device_pairing/</link>
+      <link>https://c3os-io.github.io/c3os/installation/device_pairing/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/installation/device_pairing/</guid>
+      <guid>https://c3os-io.github.io/c3os/installation/device_pairing/</guid>
       <description>Only the openSUSE variant supports automatic peer discovery and device pairing.
  For pairing a c3os node, you will use the c3os CLI which is downloadable as part of the releases from another machine, it will be used to pair and install a new node or join a node to an existing cluster.
 Start the c3os ISO Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster.</description>
@@ -31,21 +31,22 @@ Start the c3os ISO Download and mount the ISO in either baremetal or a VM that y
     
     <item>
       <title>Upgrades</title>
-      <link>https://mudler.github.io/c3os/after_install/upgrades/</link>
+      <link>https://c3os-io.github.io/c3os/after_install/upgrades/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/after_install/upgrades/</guid>
+      <guid>https://c3os-io.github.io/c3os/after_install/upgrades/</guid>
       <description>Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation
 Manual Upgrades can be triggered manually as well from the nodes, for example, run the following as root:
-cos-upgrade --no-verify --no-cosign --docker-image quay.io/mudler/c3os:opensuse-v1.21.4-22 See also the cOS documentation</description>
+cos-upgrade --no-verify --no-cosign --docker-image quay.io/c3os/c3os:opensuse-v1.21.4-22 c3os images are released on quay.io.
+See also the cOS documentation</description>
     </item>
     
     <item>
       <title>Automated installation</title>
-      <link>https://mudler.github.io/c3os/installation/automated/</link>
+      <link>https://c3os-io.github.io/c3os/installation/automated/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/installation/automated/</guid>
+      <guid>https://c3os-io.github.io/c3os/installation/automated/</guid>
       <description>Automated installation is available as well aside of manual pairing.
 A cloud-init of the following form can be supplied as a datasource (CDROM, etc.):
 #cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
@@ -53,10 +54,10 @@ A cloud-init of the following form can be supplied as a datasource (CDROM, etc.)
     
     <item>
       <title>Layout</title>
-      <link>https://mudler.github.io/c3os/basics/layout/</link>
+      <link>https://c3os-io.github.io/c3os/basics/layout/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/basics/layout/</guid>
+      <guid>https://c3os-io.github.io/c3os/basics/layout/</guid>
       <description>c3OS is an immutable Distribution, built with the cOS-toolkit.
 By default, c3OS uses an immutable setup.
 A running system will look like as follows:
@@ -65,20 +66,20 @@ A running system will look like as follows:
     
     <item>
       <title>Paths</title>
-      <link>https://mudler.github.io/c3os/after_install/paths/</link>
+      <link>https://c3os-io.github.io/c3os/after_install/paths/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/after_install/paths/</guid>
+      <guid>https://c3os-io.github.io/c3os/after_install/paths/</guid>
       <description>The following paths are relevant for c3os:
    Path Description     /usr/local/.c3os/deployed Sentinel file written after bootstrapping is complete. Remove to retrigger automatic bootstrap   /usr/local/.c3os/lease IP Lease of the node in the network. Delete to change IP address of the node    </description>
     </item>
     
     <item>
       <title>CLI</title>
-      <link>https://mudler.github.io/c3os/basics/cli/</link>
+      <link>https://c3os-io.github.io/c3os/basics/cli/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/basics/cli/</guid>
+      <guid>https://c3os-io.github.io/c3os/basics/cli/</guid>
       <description>A CLI is provided as part of releases associated to each c3os version.
 The CLI can be used from an external machine to generate network tokens and pair nodes on first-boot.
 ./c3os --help NAME: c3os - c3os (register|install) USAGE: [global options] command [command options] [arguments...] VERSION: 0.1 DESCRIPTION: c3os registers and installs c3os boxes AUTHOR: Ettore Di Giacinto COMMANDS: register create-config, c generate-token, g setup, s get-kubeconfig install, i help, h Shows a list of commands or help for one command create-config Generates a new c3os configuration file which can be used as cloud-init, with a new unique network token:</description>
@@ -86,10 +87,10 @@ The CLI can be used from an external machine to generate network tokens and pair
     
     <item>
       <title>Manual installation</title>
-      <link>https://mudler.github.io/c3os/installation/manual/</link>
+      <link>https://c3os-io.github.io/c3os/installation/manual/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/installation/manual/</guid>
+      <guid>https://c3os-io.github.io/c3os/installation/manual/</guid>
       <description>Manual installation is available as well aside of pairing and automated installation.
 Default credentials If needed to connect over ssh, the system have an hardcoded username/password when booting from the LiveCD:
 user: c3os pass: c3os  Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.
@@ -99,32 +100,32 @@ cos-installer --config $CONFIG Where the config can be a cloud-init file:</descr
     
     <item>
       <title>Troubleshooting</title>
-      <link>https://mudler.github.io/c3os/after_install/troubleshooting/</link>
+      <link>https://c3os-io.github.io/c3os/after_install/troubleshooting/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/after_install/troubleshooting/</guid>
+      <guid>https://c3os-io.github.io/c3os/after_install/troubleshooting/</guid>
       <description>Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
 Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to. Refer to the edgeVPN documentation on how to connect to the VPN, but it boils down to run edgevpn:</description>
     </item>
     
     <item>
       <title>Configuration reference</title>
-      <link>https://mudler.github.io/c3os/installation/configuration/</link>
+      <link>https://c3os-io.github.io/c3os/installation/configuration/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/installation/configuration/</guid>
+      <guid>https://c3os-io.github.io/c3os/installation/configuration/</guid>
       <description>A c3os node during pairing or either automated install can be configured via a single configuration file.
 c3os: network_token: &amp;#34;....&amp;#34; # Device for offline installs device: &amp;#34;/dev/sda&amp;#34; # Reboot after installation reboot: true # Power off after installation poweroff: true # Set to true when installing without Pairing offline: true # Manually set node role. Available: master, worker. Defaults auto (none) role: &amp;#34;master&amp;#34; # User defined network-id. Can be used to have multiple clusters in the same network network_id: &amp;#34;dev&amp;#34; vpn: # EdgeVPN environment options DHCP: &amp;#34;true&amp;#34; # Disable DHT (for airgap) EDGEVPNDHT: &amp;#34;false&amp;#34; EDGEVPNMAXCONNS: &amp;#34;200&amp;#34; # If DHCP is enabled, it&amp;#39;s the starting IP ADDRESS: &amp;#34;10.</description>
     </item>
     
     <item>
       <title>Take over installation</title>
-      <link>https://mudler.github.io/c3os/installation/takeover/</link>
+      <link>https://c3os-io.github.io/c3os/installation/takeover/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://mudler.github.io/c3os/installation/takeover/</guid>
+      <guid>https://c3os-io.github.io/c3os/installation/takeover/</guid>
       <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
- From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
+ From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/c3os/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
     </item>
     
   </channel>
