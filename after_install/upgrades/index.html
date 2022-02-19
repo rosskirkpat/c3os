@@ -12,22 +12,22 @@
     <title>Upgrades :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1645295745" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1645295745" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1645305269" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1645305269" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1645295745" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1645305269" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1645295745"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1645305269"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1645295745"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1645295745"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1645305269"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1645305269"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/c3os-io.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1645295745"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1645305269"></script>
 
     
   </div>
@@ -399,6 +399,27 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c3os/after_install/customizing/" title="Customizing the system image" class="dd-item ">
+        <a href="/c3os/after_install/customizing/">
+        <b>- </b>Customizing the system image
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
       
@@ -501,7 +522,11 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#kubernetes">Kubernetes</a></li>
-    <li><a href="#manual">Manual</a></li>
+    <li><a href="#manual">Manual</a>
+      <ul>
+        <li><a href="#upgrade-to-latest">Upgrade to latest</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -529,10 +554,14 @@
 <h2 id="kubernetes">Kubernetes</h2>
 <p>Upgrades can be triggered from Kubernetes with <code>system-upgrade-controller</code> installed in your cluster. <a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#integration-with-system-upgrade-controller">See the cOS documentation</a></p>
 <h2 id="manual">Manual</h2>
-<p>Upgrades can be triggered manually as well from the nodes, for example, run the following as root:</p>
-<pre tabindex="0"><code>cos-upgrade --no-verify --no-cosign --docker-image quay.io/c3os/c3os:opensuse-v1.21.4-22
+<h3 id="upgrade-to-latest">Upgrade to latest</h3>
+<p>Upgrades can be triggered manually as well from the nodes.</p>
+<p>To upgrade to latest available version, run <code>c3os upgrade</code>.</p>
+<p>To specify a version, run <code>c3os upgrade &lt;version&gt;</code>. Use <code>--force</code> to force upgrading to avoid checking versions. All the available versions can be list with: <code>c3os upgrade list-releases</code>.</p>
+<p>It is possible altough to use the same commandset from <code>cOS</code>. So for example, the following works too:</p>
+<pre tabindex="0"><code>cos-upgrade --no-verify --docker-image quay.io/c3os/c3os:opensuse-v1.21.4-22
 </code></pre><p>c3os images are released on <a href="https://quay.io/repository/c3os/c3os">quay.io</a>.</p>
-<p><a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#upgrade-to-a-specific-container-image">See also the cOS documentation</a></p>
+<p><a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#upgrade-to-a-specific-container-image">See also the general cOS documentation</a> which applies for <code>c3os</code> as well.</p>
 
 
 <footer class="footline">
@@ -794,6 +823,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -819,19 +864,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1645295745"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1645295745"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645295745"></script>
-    <script src="/c3os/js/jquery.sticky.js?1645295745"></script>
-    <script src="/c3os/js/featherlight.min.js?1645295745"></script>
-    <script src="/c3os/js/highlight.pack.js?1645295745"></script>
+    <script src="/c3os/js/clipboard.min.js?1645305269"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1645305269"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645305269"></script>
+    <script src="/c3os/js/jquery.sticky.js?1645305269"></script>
+    <script src="/c3os/js/featherlight.min.js?1645305269"></script>
+    <script src="/c3os/js/highlight.pack.js?1645305269"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645295745"></script>
-    <script src="/c3os/js/learn.js?1645295745"></script>
-    <script src="/c3os/js/hugo-learn.js?1645295745"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645305269"></script>
+    <script src="/c3os/js/learn.js?1645305269"></script>
+    <script src="/c3os/js/hugo-learn.js?1645305269"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1645295745"></script>
+            <script src="/c3os/mermaid/mermaid.js?1645305269"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

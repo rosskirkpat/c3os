@@ -36,9 +36,10 @@ Start the c3os ISO Download and mount the ISO in either baremetal or a VM that y
       
       <guid>https://c3os-io.github.io/c3os/after_install/upgrades/</guid>
       <description>Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation
-Manual Upgrades can be triggered manually as well from the nodes, for example, run the following as root:
-cos-upgrade --no-verify --no-cosign --docker-image quay.io/c3os/c3os:opensuse-v1.21.4-22 c3os images are released on quay.io.
-See also the cOS documentation</description>
+Manual Upgrade to latest Upgrades can be triggered manually as well from the nodes.
+To upgrade to latest available version, run c3os upgrade.
+To specify a version, run c3os upgrade &amp;lt;version&amp;gt;. Use --force to force upgrading to avoid checking versions. All the available versions can be list with: c3os upgrade list-releases.
+It is possible altough to use the same commandset from cOS.</description>
     </item>
     
     <item>
@@ -48,8 +49,9 @@ See also the cOS documentation</description>
       
       <guid>https://c3os-io.github.io/c3os/installation/automated/</guid>
       <description>Automated installation is available as well aside of manual pairing.
-A cloud-init of the following form can be supplied as a datasource (CDROM, etc.):
-#cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically</description>
+A cloud-init of the following form can be supplied as a datasource (CDROM, cos.setup bootarg):
+#cloud-init c3os: device: &amp;#34;/dev/sda&amp;#34; reboot: true poweroff: true offline: true # Required, for automated installations network_token: .... # extra configuration which will drive the installation automatically on first boot.
+The installer will kick in automatically and reboot/poweroff if specified. Note, to trigger the automatic installation the offline field must be enabled.</description>
     </item>
     
     <item>
@@ -104,8 +106,9 @@ cos-installer --config $CONFIG Where the config can be a cloud-init file:</descr
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
       <guid>https://c3os-io.github.io/c3os/after_install/troubleshooting/</guid>
-      <description>Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
-Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to. Refer to the edgeVPN documentation on how to connect to the VPN, but it boils down to run edgevpn:</description>
+      <description>Root permission By default there is no root user set. A default user (c3os) is created and can use sudo without password authentication during LiveCD bootup.
+Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
+Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to.</description>
     </item>
     
     <item>
@@ -119,13 +122,24 @@ c3os: network_token: &amp;#34;....&amp;#34; # Device for offline installs device
     </item>
     
     <item>
+      <title>Customizing the system image</title>
+      <link>https://c3os-io.github.io/c3os/after_install/customizing/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://c3os-io.github.io/c3os/after_install/customizing/</guid>
+      <description>c3os is a container-based OS, if you want to change c3os and add a package it is required to build only a docker image.
+For example:
+FROMquay.io/c3os/c3os:opensuse-latestRUN zypper in -y ...RUN export VERSION=&amp;#34;my-version&amp;#34;RUN envsubst &amp;#39;${VERSION}&amp;#39; &amp;lt;/etc/os-releaseThe image can be then used with c3os upgrade or with system-upgrade-controller for upgrades within Kubernetes.</description>
+    </item>
+    
+    <item>
       <title>Take over installation</title>
       <link>https://c3os-io.github.io/c3os/installation/takeover/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
       <guid>https://c3os-io.github.io/c3os/installation/takeover/</guid>
       <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
- From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run:  export DEVICE=/dev/sda export IMAGE=quay.io/c3os/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
+ From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run for example:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
     </item>
     
   </channel>
