@@ -12,22 +12,22 @@
     <title>Manual installation :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1645647701" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1645650295" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1645650295" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1645650295" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1645647701"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1645650295"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1645647701"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1645647701"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1645650295"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1645650295"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/c3os-io.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1645647701"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1645650295"></script>
 
     
   </div>
@@ -577,9 +577,9 @@ pass: c3os
 <div class="notices note" ><p>Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.</p>
 </div>
 
-<p>Login over SSH or via console and run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cos-installer --config $CONFIG
-</code></pre></div><p>Where the config can be a cloud-init file:</p>
+<p>Login over SSH as the <code>c3os</code> user or via console with <code>c3os:c3os</code> and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cos-installer --cloud-init $CONFIG
+</code></pre></div><p>Where the config can be a cloud-init file or a URL to it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#cloud-init</span>
 
 <span style="color:#f92672">c3os</span>:
@@ -588,7 +588,7 @@ pass: c3os
 <span style="color:#75715e"># extra configuration</span>
 </code></pre></div><h2 id="manual-k3s-configuration">Manual K3s configuration</h2>
 <p>Automatic nodes configuration can be disabled by not specifying a <code>network_token</code> in the configuration file.</p>
-<p>In that case no VPN and k3s is configured automatically, see the <a href="https://github.com/c3os-io/c3os/tree/master/examples">examples</a> to configure k3s manually.</p>
+<p>In that case no VPN and either k3s is configured automatically, see also the <a href="https://github.com/c3os-io/c3os/tree/master/examples">examples</a> folder in the repository to configure k3s manually.</p>
 
 
 <footer class="footline">
@@ -910,19 +910,19 @@ pass: c3os
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1645647701"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1645647701"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645647701"></script>
-    <script src="/c3os/js/jquery.sticky.js?1645647701"></script>
-    <script src="/c3os/js/featherlight.min.js?1645647701"></script>
-    <script src="/c3os/js/highlight.pack.js?1645647701"></script>
+    <script src="/c3os/js/clipboard.min.js?1645650295"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1645650295"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645650295"></script>
+    <script src="/c3os/js/jquery.sticky.js?1645650295"></script>
+    <script src="/c3os/js/featherlight.min.js?1645650295"></script>
+    <script src="/c3os/js/highlight.pack.js?1645650295"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645647701"></script>
-    <script src="/c3os/js/learn.js?1645647701"></script>
-    <script src="/c3os/js/hugo-learn.js?1645647701"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645650295"></script>
+    <script src="/c3os/js/learn.js?1645650295"></script>
+    <script src="/c3os/js/hugo-learn.js?1645650295"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1645647701"></script>
+            <script src="/c3os/mermaid/mermaid.js?1645650295"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

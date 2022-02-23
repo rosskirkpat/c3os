@@ -95,8 +95,7 @@ The CLI can be used from an external machine to generate network tokens and pair
       <description>Manual installation is available as well aside of pairing and automated installation.
 Default credentials If needed to connect over ssh, the system have an hardcoded username/password when booting from the LiveCD:
 user: c3os pass: c3os  Note, after the installation the password login is disabled, so users and ssh keys to login must be configured via cloud-init.
- Login over SSH or via console and run:
-cos-installer --config $CONFIG Where the config can be a cloud-init file:</description>
+ Login over SSH as the c3os user or via console with c3os:c3os and run:</description>
     </item>
     
     <item>
