@@ -12,22 +12,22 @@
     <title>Examples :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1645647391" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1645647391" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1645647701" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1645647701" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1645647391" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1645647701" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1645647391"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1645647701"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1645647391"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1645647391"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1645647701"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1645647701"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/c3os-io.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1645647391"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1645647701"></script>
 
     
   </div>
@@ -578,7 +578,33 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">c3os</span>:
   <span style="color:#f92672">network_token</span>: <span style="color:#e6db74">&#34;....&#34;</span>
 </code></pre></div><p>As always, IPs here are arbitrary as they are virtual ips in the VPN which is created between the cluster nodes.</p>
-
+<h1 id="run-only-k3s-without-vpns">Run only k3s without VPNs</h1>
+<p><code>c3os</code> can be also used without any VPN and P2P network. Infact, <code>k3s</code> is already pre-installed, and it is sufficient to not specify any <code>c3os</code> block in the cloud init configuration.</p>
+<p>For example, to start <code>k3s</code> as a server with <code>c3os</code> it&rsquo;s sufficient to specify the <code>k3s</code> service in the config file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Default deployment&#34;</span>
+<span style="color:#f92672">stages</span>:     
+   <span style="color:#f92672">network</span>:
+     - <span style="color:#f92672">if</span>: <span style="color:#e6db74">&#39;[ ! -f &#34;/run/cos/recovery_mode&#34; ]&#39;</span>
+       <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Setup k3s&#34;</span>
+       <span style="color:#f92672">environment_file</span>: <span style="color:#e6db74">&#34;/etc/sysconfig/k3s&#34;</span>
+       <span style="color:#f92672">environment</span>:
+         <span style="color:#f92672">K3S_TOKEN</span>: <span style="color:#e6db74">&#34;...&#34;</span>
+       <span style="color:#f92672">systemctl</span>:
+         <span style="color:#f92672">start</span>: 
+         - <span style="color:#ae81ff">k3s</span>
+</code></pre></div><p>And similarly for an <code>agent</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Default deployment&#34;</span>
+<span style="color:#f92672">stages</span>:     
+   <span style="color:#f92672">network</span>:
+     - <span style="color:#f92672">if</span>: <span style="color:#e6db74">&#39;[ ! -f &#34;/run/cos/recovery_mode&#34; ]&#39;</span>
+       <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Setup k3s&#34;</span>
+       <span style="color:#f92672">environment_file</span>: <span style="color:#e6db74">&#34;/etc/sysconfig/k3s-agent&#34;</span>
+       <span style="color:#f92672">environment</span>:
+         <span style="color:#f92672">K3S_TOKEN</span>: <span style="color:#e6db74">&#34;...&#34;</span>
+       <span style="color:#f92672">systemctl</span>:
+         <span style="color:#f92672">start</span>: 
+         - <span style="color:#ae81ff">k3s-agent</span>
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -899,19 +925,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1645647391"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1645647391"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645647391"></script>
-    <script src="/c3os/js/jquery.sticky.js?1645647391"></script>
-    <script src="/c3os/js/featherlight.min.js?1645647391"></script>
-    <script src="/c3os/js/highlight.pack.js?1645647391"></script>
+    <script src="/c3os/js/clipboard.min.js?1645647701"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1645647701"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645647701"></script>
+    <script src="/c3os/js/jquery.sticky.js?1645647701"></script>
+    <script src="/c3os/js/featherlight.min.js?1645647701"></script>
+    <script src="/c3os/js/highlight.pack.js?1645647701"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645647391"></script>
-    <script src="/c3os/js/learn.js?1645647391"></script>
-    <script src="/c3os/js/hugo-learn.js?1645647391"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645647701"></script>
+    <script src="/c3os/js/learn.js?1645647701"></script>
+    <script src="/c3os/js/hugo-learn.js?1645647701"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1645647391"></script>
+            <script src="/c3os/mermaid/mermaid.js?1645647701"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
