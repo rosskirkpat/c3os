@@ -14,10 +14,9 @@
       
       <guid>https://c3os-io.github.io/c3os/after_install/upgrades/</guid>
       <description>Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation
-Manual Upgrade to latest Upgrades can be triggered manually as well from the nodes.
-To upgrade to latest available version, run c3os upgrade.
-To specify a version, run c3os upgrade &amp;lt;version&amp;gt;. Use --force to force upgrading to avoid checking versions. All the available versions can be list with: c3os upgrade list-releases.
-It is possible altough to use the same commandset from cOS.</description>
+System upgrade controller needs to be installed in the cluster which is targeted for the upgrades, for example:
+kubectl apply -f https://raw.githubusercontent.com/rancher/system-upgrade-controller/master/manifests/system-upgrade-controller.yaml Then in order to trigger an upgrade, we need to create a new upgrade plan for the cluster. create a Plan resource like the following as upgrade.yaml:
+--- apiVersion: upgrade.cattle.io/v1 kind: Plan metadata: name: os-upgrade namespace: system-upgrade labels: k3s-upgrade: server spec: concurrency: 1 #version: latest version: &amp;#34;opensuse-v1.</description>
     </item>
     
     <item>

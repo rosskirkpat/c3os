@@ -12,22 +12,22 @@
     <title>Upgrades :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1645646652" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1645647297" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1645647297" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1645647297" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1645646652"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1645647297"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1645646652"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1645646652"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1645647297"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1645647297"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/c3os-io.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1645646652"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1645647297"></script>
 
     
   </div>
@@ -574,6 +574,36 @@
 
 <h2 id="kubernetes">Kubernetes</h2>
 <p>Upgrades can be triggered from Kubernetes with <code>system-upgrade-controller</code> installed in your cluster. <a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#integration-with-system-upgrade-controller">See the cOS documentation</a></p>
+<p>System upgrade controller needs to be installed in the cluster which is targeted for the upgrades, for example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f https://raw.githubusercontent.com/rancher/system-upgrade-controller/master/manifests/system-upgrade-controller.yaml
+</code></pre></div><p>Then in order to trigger an upgrade, we need to create a new upgrade plan for the cluster. create a <code>Plan</code> resource like the following as <code>upgrade.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">upgrade.cattle.io/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Plan</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">os-upgrade</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">system-upgrade</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">k3s-upgrade</span>: <span style="color:#ae81ff">server</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">concurrency</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#75715e">#version:  latest</span>
+  <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;opensuse-v1.21.4-31&#34;</span>
+  <span style="color:#f92672">nodeSelector</span>:
+    <span style="color:#f92672">matchExpressions</span>:
+      - {<span style="color:#f92672">key: kubernetes.io/hostname, operator</span>: <span style="color:#ae81ff">Exists}</span>
+  <span style="color:#f92672">serviceAccountName</span>: <span style="color:#ae81ff">system-upgrade</span>
+  <span style="color:#f92672">cordon</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">drain</span>:
+    <span style="color:#f92672">force</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">disableEviction</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">upgrade</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">quay.io/c3os/c3os</span>
+    <span style="color:#f92672">command</span>:
+    - <span style="color:#e6db74">&#34;/usr/sbin/suc-upgrade&#34;</span>
+</code></pre></div><p>And apply it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f upgrade.yaml
+</code></pre></div><p>You can use the <code>version</code> field in the resource to tweak the <code>c3os version</code> depending on the chosen flavor. Refer to <a href="https://github.com/rancher/system-upgrade-controller">system-upgrade-controller</a> for documentation.</p>
 <h2 id="manual">Manual</h2>
 <h3 id="upgrade-to-latest">Upgrade to latest</h3>
 <p>Upgrades can be triggered manually as well from the nodes.</p>
@@ -901,19 +931,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1645646652"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1645646652"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645646652"></script>
-    <script src="/c3os/js/jquery.sticky.js?1645646652"></script>
-    <script src="/c3os/js/featherlight.min.js?1645646652"></script>
-    <script src="/c3os/js/highlight.pack.js?1645646652"></script>
+    <script src="/c3os/js/clipboard.min.js?1645647297"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1645647297"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645647297"></script>
+    <script src="/c3os/js/jquery.sticky.js?1645647297"></script>
+    <script src="/c3os/js/featherlight.min.js?1645647297"></script>
+    <script src="/c3os/js/highlight.pack.js?1645647297"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645646652"></script>
-    <script src="/c3os/js/learn.js?1645646652"></script>
-    <script src="/c3os/js/hugo-learn.js?1645646652"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645647297"></script>
+    <script src="/c3os/js/learn.js?1645647297"></script>
+    <script src="/c3os/js/hugo-learn.js?1645647297"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1645646652"></script>
+            <script src="/c3os/mermaid/mermaid.js?1645647297"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
