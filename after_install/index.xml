@@ -38,7 +38,7 @@ It is possible altough to use the same commandset from cOS.</description>
       <guid>https://c3os-io.github.io/c3os/after_install/troubleshooting/</guid>
       <description>Root permission By default there is no root user set. A default user (c3os) is created and can use sudo without password authentication during LiveCD bootup.
 Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
-Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to.</description>
+Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are indeed tokens of edgevpn networks, and thus can be used to connect to with its CLI.</description>
     </item>
     
     <item>

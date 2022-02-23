@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/c3os/images/favicon.png" type="image/png">
 
-    <title>After install :: c3os</title>
+    <title>Examples :: c3os</title>
 
     
-    <link href="/c3os/css/nucleus.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/fontawesome-all.min.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/hybrid.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/featherlight.min.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/perfect-scrollbar.min.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/auto-complete.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/atom-one-dark-reasonable.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/theme.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/tabs.css?1645646653" rel="stylesheet">
-    <link href="/c3os/css/hugo-theme.css?1645646653" rel="stylesheet">
+    <link href="/c3os/css/nucleus.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/fontawesome-all.min.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/hybrid.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/featherlight.min.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/perfect-scrollbar.min.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/auto-complete.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/atom-one-dark-reasonable.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/theme.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/tabs.css?1645646652" rel="stylesheet">
+    <link href="/c3os/css/hugo-theme.css?1645646652" rel="stylesheet">
     
-    <link href="/c3os/css/theme-blue.css?1645646653" rel="stylesheet">
+    <link href="/c3os/css/theme-blue.css?1645646652" rel="stylesheet">
     
     
 
-    <script src="/c3os/js/jquery-3.3.1.min.js?1645646653"></script>
+    <script src="/c3os/js/jquery-3.3.1.min.js?1645646652"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/c3os/after_install/">
+  <body class="" data-url="/c3os/installation/examples/">
     <nav id="sidebar" class="">
 
 
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/c3os/js/lunr.min.js?1645646653"></script>
-<script type="text/javascript" src="/c3os/js/auto-complete.js?1645646653"></script>
+<script type="text/javascript" src="/c3os/js/lunr.min.js?1645646652"></script>
+<script type="text/javascript" src="/c3os/js/auto-complete.js?1645646652"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/c3os-io.github.io\/c3os\/";
     
 </script>
-<script type="text/javascript" src="/c3os/js/search.js?1645646653"></script>
+<script type="text/javascript" src="/c3os/js/search.js?1645646652"></script>
 
     
   </div>
@@ -180,7 +180,7 @@
   
     
     <li data-nav-id="/c3os/installation/" title="Installation" class="dd-item
-        
+        parent
         
         
         ">
@@ -311,7 +311,7 @@
  
   
     
-      <li data-nav-id="/c3os/installation/examples/" title="Examples" class="dd-item ">
+      <li data-nav-id="/c3os/installation/examples/" title="Examples" class="dd-item active">
         <a href="/c3os/installation/examples/">
         <b>- </b>Examples
         
@@ -340,8 +340,8 @@
   
     
     <li data-nav-id="/c3os/after_install/" title="After install" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/c3os/after_install/">
@@ -496,7 +496,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/c3os-io/c3os/edit/master/docs/content/after_install/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/c3os-io/c3os/edit/master/docs/content/installation/examples.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -511,6 +511,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -521,7 +523,13 @@
             
           
           
-            <a href='/c3os/'></a> > After install
+            
+            
+          
+          
+            <a href='/c3os/'></a> > <a href='/c3os/installation/'>Installation</a> > Examples
+          
+        
           
         
           
@@ -530,6 +538,13 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -537,28 +552,38 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Examples
+            </h1>
           
 
         
 
 
+<p>In the following section you can find example configuration files to achieve specific <code>c3os</code> setups.</p>
+<h1 id="single-node-cluster">Single node cluster</h1>
+<p>By default <code>c3os</code> requires multiple nodes. As for the <code>c3os</code> decentralized nature, it requires co-ordination between at least 2 nodes to achieve consensus on IPs, network setting, etc.</p>
+<p>In order to create single-node cluster, we need to force both the <code>role</code> and the <code>ip</code> by disabling <code>DHCP</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">c3os</span>:
+  <span style="color:#f92672">network_token</span>: <span style="color:#e6db74">&#34;....&#34;</span>
+  <span style="color:#f92672">role</span>: <span style="color:#e6db74">&#34;master&#34;</span>
+<span style="color:#f92672">vpn</span>:
+  <span style="color:#75715e"># EdgeVPN environment options</span>
+  <span style="color:#f92672">DHCP</span>: <span style="color:#e6db74">&#34;false&#34;</span>
+  <span style="color:#f92672">ADDRESS</span>: <span style="color:#e6db74">&#34;10.1.0.2/24&#34;</span>
+</code></pre></div><p>Note, the same setup can be used to specify master nodes in a set, as to join nodes it is still possible without specifying any extra setting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">c3os</span>:
+  <span style="color:#f92672">network_token</span>: <span style="color:#e6db74">&#34;....&#34;</span>
+</code></pre></div><p>As always, IPs here are arbitrary as they are virtual ips in the VPN which is created between the cluster nodes.</p>
 
-	<h1 id="im-in-what-now">I&rsquo;m in, what now?</h1>
-<p>See how to upgrade, and how to manage a c3os installation</p>
 
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
-        
-            </div> 
         
         </div>
         
@@ -657,6 +682,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -669,6 +695,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -750,6 +779,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -769,6 +799,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -782,9 +814,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -857,10 +886,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/c3os/installation/examples/" title="Examples"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/c3os/installation/takeover/" title="Take over installation"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/c3os/after_install/upgrades/" title="Upgrades" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/c3os/after_install/" title="After install" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -870,19 +899,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/c3os/js/clipboard.min.js?1645646653"></script>
-    <script src="/c3os/js/perfect-scrollbar.min.js?1645646653"></script>
-    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645646653"></script>
-    <script src="/c3os/js/jquery.sticky.js?1645646653"></script>
-    <script src="/c3os/js/featherlight.min.js?1645646653"></script>
-    <script src="/c3os/js/highlight.pack.js?1645646653"></script>
+    <script src="/c3os/js/clipboard.min.js?1645646652"></script>
+    <script src="/c3os/js/perfect-scrollbar.min.js?1645646652"></script>
+    <script src="/c3os/js/perfect-scrollbar.jquery.min.js?1645646652"></script>
+    <script src="/c3os/js/jquery.sticky.js?1645646652"></script>
+    <script src="/c3os/js/featherlight.min.js?1645646652"></script>
+    <script src="/c3os/js/highlight.pack.js?1645646652"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645646653"></script>
-    <script src="/c3os/js/learn.js?1645646653"></script>
-    <script src="/c3os/js/hugo-learn.js?1645646653"></script>
+    <script src="/c3os/js/modernizr.custom-3.6.0.js?1645646652"></script>
+    <script src="/c3os/js/learn.js?1645646652"></script>
+    <script src="/c3os/js/hugo-learn.js?1645646652"></script>
     
         
-            <script src="/c3os/mermaid/mermaid.js?1645646653"></script>
+            <script src="/c3os/mermaid/mermaid.js?1645646652"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -892,3 +921,4 @@
 
   </body>
 </html>
+

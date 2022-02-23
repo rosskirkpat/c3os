@@ -108,7 +108,7 @@ cos-installer --config $CONFIG Where the config can be a cloud-init file:</descr
       <guid>https://c3os-io.github.io/c3os/after_install/troubleshooting/</guid>
       <description>Root permission By default there is no root user set. A default user (c3os) is created and can use sudo without password authentication during LiveCD bootup.
 Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
-Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are infact tokens of edgevpn networks, and thus can be used to connect to.</description>
+Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are indeed tokens of edgevpn networks, and thus can be used to connect to with its CLI.</description>
     </item>
     
     <item>
@@ -140,6 +140,18 @@ FROMquay.io/c3os/c3os:opensuse-latestRUN zypper in -y ...RUN export VERSION=&amp
       <guid>https://c3os-io.github.io/c3os/installation/takeover/</guid>
       <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
  From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run for example:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
+    </item>
+    
+    <item>
+      <title>Examples</title>
+      <link>https://c3os-io.github.io/c3os/installation/examples/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://c3os-io.github.io/c3os/installation/examples/</guid>
+      <description>In the following section you can find example configuration files to achieve specific c3os setups.
+Single node cluster By default c3os requires multiple nodes. As for the c3os decentralized nature, it requires co-ordination between at least 2 nodes to achieve consensus on IPs, network setting, etc.
+In order to create single-node cluster, we need to force both the role and the ip by disabling DHCP:
+c3os: network_token: &amp;#34;....&amp;#34; role: &amp;#34;master&amp;#34; vpn: # EdgeVPN environment options DHCP: &amp;#34;false&amp;#34; ADDRESS: &amp;#34;10.</description>
     </item>
     
   </channel>
