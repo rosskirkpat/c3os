@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>After install on c3os</title>
-    <link>https://c3os-io.github.io/c3os/after_install/</link>
-    <description>Recent content in After install on c3os</description>
+    <title>After install on c3os documentation</title>
+    <link>https://docs.c3os.io/after_install/</link>
+    <description>Recent content in After install on c3os documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://c3os-io.github.io/c3os/after_install/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 17:56:26 +0100</lastBuildDate><atom:link href="https://docs.c3os.io/after_install/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Upgrades</title>
-      <link>https://c3os-io.github.io/c3os/after_install/upgrades/</link>
+      <link>https://docs.c3os.io/after_install/upgrades/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://c3os-io.github.io/c3os/after_install/upgrades/</guid>
+      <guid>https://docs.c3os.io/after_install/upgrades/</guid>
       <description>Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation
 System upgrade controller needs to be installed in the cluster which is targeted for the upgrades, for example:
 kubectl apply -f https://raw.githubusercontent.com/rancher/system-upgrade-controller/master/manifests/system-upgrade-controller.yaml Then in order to trigger an upgrade, we need to create a new upgrade plan for the cluster. create a Plan resource like the following as upgrade.yaml:
@@ -21,20 +21,20 @@ kubectl apply -f https://raw.githubusercontent.com/rancher/system-upgrade-contro
     
     <item>
       <title>Paths</title>
-      <link>https://c3os-io.github.io/c3os/after_install/paths/</link>
+      <link>https://docs.c3os.io/after_install/paths/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://c3os-io.github.io/c3os/after_install/paths/</guid>
+      <guid>https://docs.c3os.io/after_install/paths/</guid>
       <description>The following paths are relevant for c3os:
    Path Description     /usr/local/.c3os/deployed Sentinel file written after bootstrapping is complete. Remove to retrigger automatic bootstrap   /usr/local/.c3os/lease IP Lease of the node in the network. Delete to change IP address of the node    </description>
     </item>
     
     <item>
       <title>Troubleshooting</title>
-      <link>https://c3os-io.github.io/c3os/after_install/troubleshooting/</link>
+      <link>https://docs.c3os.io/after_install/troubleshooting/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://c3os-io.github.io/c3os/after_install/troubleshooting/</guid>
+      <guid>https://docs.c3os.io/after_install/troubleshooting/</guid>
       <description>Root permission By default there is no root user set. A default user (c3os) is created and can use sudo without password authentication during LiveCD bootup.
 Get kubeconfig On all nodes of the cluster it&amp;rsquo;s possible to invoke c3os get-kubeconfig to recover the kubeconfig file
 Connect to the cluster network Network tokens can be used to connect to the VPN created by the cluster. They are indeed tokens of edgevpn networks, and thus can be used to connect to with its CLI.</description>
@@ -42,10 +42,10 @@ Connect to the cluster network Network tokens can be used to connect to the VPN 
     
     <item>
       <title>Customizing the system image</title>
-      <link>https://c3os-io.github.io/c3os/after_install/customizing/</link>
+      <link>https://docs.c3os.io/after_install/customizing/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
-      <guid>https://c3os-io.github.io/c3os/after_install/customizing/</guid>
+      <guid>https://docs.c3os.io/after_install/customizing/</guid>
       <description>c3os is a container-based OS, if you want to change c3os and add a package it is required to build only a docker image.
 For example:
 FROMquay.io/c3os/c3os:opensuse-latestRUN zypper in -y ...RUN export VERSION=&amp;#34;my-version&amp;#34;RUN envsubst &amp;#39;${VERSION}&amp;#39; &amp;lt;/etc/os-releaseThe image can be then used with c3os upgrade or with system-upgrade-controller for upgrades within Kubernetes.</description>

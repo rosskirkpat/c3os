@@ -2,60 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://c3os-io.github.io/c3os/basics/architecture/</loc>
+    <loc>https://docs.c3os.io/basics/architecture/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/basics/</loc>
+    <loc>https://docs.c3os.io/basics/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/installation/device_pairing/</loc>
+    <loc>https://docs.c3os.io/installation/device_pairing/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/after_install/upgrades/</loc>
+    <loc>https://docs.c3os.io/after_install/upgrades/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/installation/automated/</loc>
+    <loc>https://docs.c3os.io/installation/automated/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/installation/</loc>
+    <loc>https://docs.c3os.io/installation/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/basics/layout/</loc>
+    <loc>https://docs.c3os.io/basics/layout/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/after_install/paths/</loc>
+    <loc>https://docs.c3os.io/after_install/paths/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/after_install/</loc>
+    <loc>https://docs.c3os.io/after_install/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/basics/cli/</loc>
+    <loc>https://docs.c3os.io/basics/cli/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/installation/manual/</loc>
+    <loc>https://docs.c3os.io/installation/manual/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/after_install/troubleshooting/</loc>
+    <loc>https://docs.c3os.io/after_install/troubleshooting/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/installation/configuration/</loc>
+    <loc>https://docs.c3os.io/installation/configuration/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/after_install/customizing/</loc>
+    <loc>https://docs.c3os.io/after_install/customizing/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/installation/takeover/</loc>
+    <loc>https://docs.c3os.io/installation/takeover/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/installation/examples/</loc>
+    <loc>https://docs.c3os.io/installation/examples/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/</loc>
+    <loc>https://docs.c3os.io/</loc>
     <lastmod>2022-02-09T17:56:26+01:00</lastmod>
     <priority>0</priority>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/categories/</loc>
+    <loc>https://docs.c3os.io/categories/</loc>
   </url><url>
-    <loc>https://c3os-io.github.io/c3os/tags/</loc>
+    <loc>https://docs.c3os.io/tags/</loc>
   </url>
 </urlset>
