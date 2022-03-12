@@ -1,13 +1,23 @@
+# Decomment to re-enable GRUB
+# packages:
+#   uefi:
+#   - live/grub2-efi-image
+#   isoimage:
+#   - live/grub2
+#   - live/grub2-efi-image
+
+# boot_file: "boot/x86_64/loader/eltorito.img"
+# boot_catalog: "boot/x86_64/boot.catalog" 
+# isohybrid_mbr: "boot/x86_64/loader/boot_hybrid.img"
+
+# Comment the ones below to disable syslinux
 packages:
   uefi:
-  - live/grub2-efi-image
+  - live/systemd-boot
+  - live/boot
   isoimage:
-  - live/grub2
-  - live/grub2-efi-image
-
-boot_file: "boot/x86_64/loader/eltorito.img"
-boot_catalog: "boot/x86_64/boot.catalog" 
-isohybrid_mbr: "boot/x86_64/loader/boot_hybrid.img"
+  - live/syslinux
+  - live/boot
 
 initramfs:
   kernel_file: "vmlinuz"
