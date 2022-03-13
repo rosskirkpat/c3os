@@ -105,6 +105,13 @@
 	"content": "c3os supports takeover installations, see also the cOS docs here are few summarized steps:\n From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run for example:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  "
 },
 {
+	"uri": "https://docs.c3os.io/installation/raspberry/",
+	"title": "Raspberry",
+	"tags": [],
+	"description": "",
+	"content": "c3os supports Rasperry Pi model 3 and 4 with 64bit architecture.\nYou can find arm64 raspberry images in the releases page. For example https://github.com/c3os-io/c3os/releases/download/v1.21.4-35/c3os-opensuse-arm-rpi-v1.21.4-35.img.tar.xz.\nFlash the image into a SD card with dd or Etcher and place your cloud-init configuration file inside cloud-config into the COS_PERSISTENT partition, for example cloud-config/cloud-init.yaml.\nAlso make sure to resize and enlarge the COS_PERSISTENT partition accordingly, or via cloud-init configuration.\n"
+},
+{
 	"uri": "https://docs.c3os.io/installation/examples/",
 	"title": "Examples",
 	"tags": [],

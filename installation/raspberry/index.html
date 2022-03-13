@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Architecture :: c3os documentation</title>
+    <title>Raspberry :: c3os documentation</title>
 
     
     <link href="/css/nucleus.css?1647210132" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/basics/architecture/">
+  <body class="" data-url="/installation/raspberry/">
     <nav id="sidebar" class="">
 
 
@@ -83,7 +83,7 @@
   
     
     <li data-nav-id="/basics/" title="Basics" class="dd-item
-        parent
+        
         
         
         ">
@@ -109,7 +109,7 @@
  
   
     
-      <li data-nav-id="/basics/architecture/" title="Architecture" class="dd-item active">
+      <li data-nav-id="/basics/architecture/" title="Architecture" class="dd-item ">
         <a href="/basics/architecture/">
         <b>- </b>Architecture
         
@@ -180,7 +180,7 @@
   
     
     <li data-nav-id="/installation/" title="Installation" class="dd-item
-        
+        parent
         
         
         ">
@@ -311,7 +311,7 @@
  
   
     
-      <li data-nav-id="/installation/raspberry/" title="Raspberry" class="dd-item ">
+      <li data-nav-id="/installation/raspberry/" title="Raspberry" class="dd-item active">
         <a href="/installation/raspberry/">
         <b>- </b>Raspberry
         
@@ -517,7 +517,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/c3os-io/c3os/edit/master/docs/content/basics/architecture.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/c3os-io/c3os/edit/master/docs/content/installation/raspberry.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -548,7 +548,7 @@
             
           
           
-            <a href='/'></a> > <a href='/basics/'>Basics</a> > Architecture
+            <a href='/'></a> > <a href='/installation/'>Installation</a> > Raspberry
           
         
           
@@ -577,27 +577,17 @@
           
             <h1>
               
-              Architecture
+              Raspberry
             </h1>
           
 
         
 
 
-<p>C3OS comes as ISO and as a CLI which can be downloaded from the <a href="https://github.com/c3os-io/c3os/releases">release page</a>. The CLI setups <code>k3s</code> and is also used to automatically register nodes in a private, user-defined network.</p>
-<p>Currently <strong>Alpine</strong>-based and <strong>openSUSE</strong>-based flavors are available, the <strong>openSUSE</strong>-based flavor supports autonomous kubernetes bootstrapping with the <code>c3os</code> CLI.</p>
-<p>C3OS nodes based on <strong>openSUSE</strong> autonomously connect and configure each other via P2P, no network setup and no central server is needed.</p>
-<p>Nodes can discovery each other also if they are in different networks and behind NAT.</p>
-<p>c3OS uses <a href="https://github.com/mudler/edgevpn">edgevpn</a> to coordinate, automatically discover/configure and establish a p2p vpn network between the cluster nodes.</p>
-<p>The connection happens in 3 stages, where the discovery is driven by DHT and mDNS (which can be selectively disabled/enabled)</p>
-<ul>
-<li>Discovery</li>
-<li>Gossip network</li>
-<li>Full connectivity</li>
-</ul>
-<p><img src="https://mudler.github.io/edgevpn/docs/concepts/architecture/edevpn_bootstrap_hu8e61a09dccbf3a67bf1fc604ae4924fd_64246_1200x550_fit_catmullrom_3.png" alt=""></p>
-<p>The initial installation is done with pairing via QR code. A QR code is displayed when booting from ISO, to allow deployment on situations where sending files or connecting remotely is inconvienent.</p>
-<p>For mass-installation cloud-init can be used to drive automated installs.</p>
+<p><code>c3os</code> supports Rasperry Pi model 3 and 4 with 64bit architecture.</p>
+<p>You can find arm64 raspberry images in the releases page. For example <code>https://github.com/c3os-io/c3os/releases/download/v1.21.4-35/c3os-opensuse-arm-rpi-v1.21.4-35.img.tar.xz</code>.</p>
+<p>Flash the image into a SD card with dd or Etcher and place your cloud-init configuration file inside <code>cloud-config</code> into the <code>COS_PERSISTENT</code> partition, for example <code>cloud-config/cloud-init.yaml</code>.</p>
+<p>Also make sure to resize and enlarge the <code>COS_PERSISTENT</code> partition accordingly, or via cloud-init configuration.</p>
 
 
 <footer class="footline">
@@ -635,74 +625,8 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -732,6 +656,58 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -812,6 +788,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -916,10 +912,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/basics/" title="Basics"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/installation/takeover/" title="Take over installation"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/basics/layout/" title="Layout" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/installation/examples/" title="Examples" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
