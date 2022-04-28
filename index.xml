@@ -120,6 +120,26 @@ c3os: network_token: &amp;#34;....&amp;#34; # Device for offline installs device
     </item>
     
     <item>
+      <title>Take over installation</title>
+      <link>https://docs.c3os.io/installation/takeover/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://docs.c3os.io/installation/takeover/</guid>
+      <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
+ From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run for example:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
+    </item>
+    
+    <item>
+      <title>VPN Recovery mode</title>
+      <link>https://docs.c3os.io/after_install/recovery_mode/</link>
+      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
+      
+      <guid>https://docs.c3os.io/after_install/recovery_mode/</guid>
+      <description>The c3os vpn recovery mode can be used to recover a damaged system, or to regain access remotely (with assistance) to a machine which has been lost access to. The recovery mode is accessible only from the GRUB menu, from both the LiveCD and an installed system.
+On installed system there are two recovery modes available during boot. Below it is described only how the VPN recovery works. The manual recovery entry has nothing special from the standard cOS recovery mode.</description>
+    </item>
+    
+    <item>
       <title>Customizing the system image</title>
       <link>https://docs.c3os.io/after_install/customizing/</link>
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
@@ -128,16 +148,6 @@ c3os: network_token: &amp;#34;....&amp;#34; # Device for offline installs device
       <description>c3os is a container-based OS, if you want to change c3os and add a package it is required to build only a docker image.
 For example:
 FROMquay.io/c3os/c3os:opensuse-latestRUN zypper in -y ...RUN export VERSION=&amp;#34;my-version&amp;#34;RUN envsubst &amp;#39;${VERSION}&amp;#39; &amp;lt;/etc/os-releaseThe image can be then used with c3os upgrade or with system-upgrade-controller for upgrades within Kubernetes.</description>
-    </item>
-    
-    <item>
-      <title>Take over installation</title>
-      <link>https://docs.c3os.io/installation/takeover/</link>
-      <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
-      
-      <guid>https://docs.c3os.io/installation/takeover/</guid>
-      <description>c3os supports takeover installations, see also the cOS docs here are few summarized steps:
- From the Dedicated control panel (OVH, Hetzner, etc.), boot in rescue mode install docker and run for example:  export DEVICE=/dev/sda export IMAGE=quay.io/mudler/c3os:v1.21.4-19 # A url pointing to a valid cloud-init config file. E.g. as a gist at gists.github.com export CONFIG_FILE=... docker run --privileged -v $DEVICE:$DEVICE -ti $IMAGE cos-installer --config $CONFIG_FILE --no-cosign --no-verify --docker-image $IMAGE $DEVICE  Switch back to booting from HD and reboot  </description>
     </item>
     
     <item>
