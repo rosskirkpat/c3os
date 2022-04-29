@@ -12,22 +12,22 @@
     <title>Troubleshooting :: c3os documentation</title>
 
     
-    <link href="/css/nucleus.css?1651164130" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1651164130" rel="stylesheet">
-    <link href="/css/hybrid.css?1651164130" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1651164130" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1651164130" rel="stylesheet">
-    <link href="/css/auto-complete.css?1651164130" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1651164130" rel="stylesheet">
-    <link href="/css/theme.css?1651164130" rel="stylesheet">
-    <link href="/css/tabs.css?1651164130" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1651164130" rel="stylesheet">
+    <link href="/css/nucleus.css?1651249884" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1651249884" rel="stylesheet">
+    <link href="/css/hybrid.css?1651249884" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1651249884" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1651249884" rel="stylesheet">
+    <link href="/css/auto-complete.css?1651249884" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1651249884" rel="stylesheet">
+    <link href="/css/theme.css?1651249884" rel="stylesheet">
+    <link href="/css/tabs.css?1651249884" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1651249884" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1651164130" rel="stylesheet">
+    <link href="/css/theme-blue.css?1651249884" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1651164130"></script>
+    <script src="/js/jquery-3.3.1.min.js?1651249884"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1651164130"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1651164130"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1651249884"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1651249884"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/docs.c3os.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1651164130"></script>
+<script type="text/javascript" src="/js/search.js?1651249884"></script>
 
     
   </div>
@@ -450,9 +450,9 @@
  
   
     
-      <li data-nav-id="/after_install/recovery_mode/" title="VPN Recovery mode" class="dd-item ">
+      <li data-nav-id="/after_install/recovery_mode/" title="Remote Recovery mode" class="dd-item ">
         <a href="/after_install/recovery_mode/">
-        <b>- </b>VPN Recovery mode
+        <b>- </b>Remote Recovery mode
         
         </a>
     </li>
@@ -623,8 +623,12 @@
 <h2 id="connect-to-the-cluster-network">Connect to the cluster network</h2>
 <p>Network tokens can be used to connect to the VPN created by the cluster. They are indeed tokens of <a href="https://github.com/mudler/edgevpn">edgevpn</a> networks, and thus can be used to connect to with its CLI.</p>
 <p>The <code>c3os</code> CLI can be used to connect as well, with the <code>bridge</code> command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">c3os bridge --network-token &lt;TOKEN&gt;
-</code></pre></div><p>Afterward you can connect to <a href="http://localhost:8080">localhost:8080</a> to access the network API and verify machines are connected.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo c3os bridge --network-token &lt;TOKEN&gt;
+</code></pre></div>
+<div class="notices note" ><p>The command needs root permissions as it sets up a local tun interface to connect to the VPN.</p>
+</div>
+
+<p>Afterward you can connect to <a href="http://localhost:8080">localhost:8080</a> to access the network API and verify machines are connected.</p>
 <p>See <a href="https://mudler.github.io/edgevpn/docs/getting-started/cli/">edgeVPN</a> documentation on how to connect to the VPN with the edgeVPN cli, which is similar:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">EDGEVPNTOKEN<span style="color:#f92672">=</span>&lt;network_token&gt; edgevpn --dhcp
 </code></pre></div><h2 id="setup-process">Setup process</h2>
@@ -979,7 +983,7 @@
 			<a class="nav nav-prev" href="/after_install/paths/" title="Paths"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/after_install/recovery_mode/" title="VPN Recovery mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/after_install/recovery_mode/" title="Remote Recovery mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -989,19 +993,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1651164130"></script>
-    <script src="/js/perfect-scrollbar.min.js?1651164130"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1651164130"></script>
-    <script src="/js/jquery.sticky.js?1651164130"></script>
-    <script src="/js/featherlight.min.js?1651164130"></script>
-    <script src="/js/highlight.pack.js?1651164130"></script>
+    <script src="/js/clipboard.min.js?1651249884"></script>
+    <script src="/js/perfect-scrollbar.min.js?1651249884"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1651249884"></script>
+    <script src="/js/jquery.sticky.js?1651249884"></script>
+    <script src="/js/featherlight.min.js?1651249884"></script>
+    <script src="/js/highlight.pack.js?1651249884"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1651164130"></script>
-    <script src="/js/learn.js?1651164130"></script>
-    <script src="/js/hugo-learn.js?1651164130"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1651249884"></script>
+    <script src="/js/learn.js?1651249884"></script>
+    <script src="/js/hugo-learn.js?1651249884"></script>
     
         
-            <script src="/mermaid/mermaid.js?1651164130"></script>
+            <script src="/mermaid/mermaid.js?1651249884"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

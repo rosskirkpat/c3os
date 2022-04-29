@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>VPN Recovery mode :: c3os documentation</title>
+    <title>Remote Recovery mode :: c3os documentation</title>
 
     
-    <link href="/css/nucleus.css?1651164130" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1651164130" rel="stylesheet">
-    <link href="/css/hybrid.css?1651164130" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1651164130" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1651164130" rel="stylesheet">
-    <link href="/css/auto-complete.css?1651164130" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1651164130" rel="stylesheet">
-    <link href="/css/theme.css?1651164130" rel="stylesheet">
-    <link href="/css/tabs.css?1651164130" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1651164130" rel="stylesheet">
+    <link href="/css/nucleus.css?1651249884" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1651249884" rel="stylesheet">
+    <link href="/css/hybrid.css?1651249884" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1651249884" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1651249884" rel="stylesheet">
+    <link href="/css/auto-complete.css?1651249884" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1651249884" rel="stylesheet">
+    <link href="/css/theme.css?1651249884" rel="stylesheet">
+    <link href="/css/tabs.css?1651249884" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1651249884" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1651164130" rel="stylesheet">
+    <link href="/css/theme-blue.css?1651249884" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1651164130"></script>
+    <script src="/js/jquery-3.3.1.min.js?1651249884"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1651164130"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1651164130"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1651249884"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1651249884"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/docs.c3os.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1651164130"></script>
+<script type="text/javascript" src="/js/search.js?1651249884"></script>
 
     
   </div>
@@ -450,9 +450,9 @@
  
   
     
-      <li data-nav-id="/after_install/recovery_mode/" title="VPN Recovery mode" class="dd-item active">
+      <li data-nav-id="/after_install/recovery_mode/" title="Remote Recovery mode" class="dd-item active">
         <a href="/after_install/recovery_mode/">
-        <b>- </b>VPN Recovery mode
+        <b>- </b>Remote Recovery mode
         
         </a>
     </li>
@@ -573,7 +573,7 @@
             
           
           
-            <a href='/'></a> > <a href='/after_install/'>After install</a> > VPN Recovery mode
+            <a href='/'></a> > <a href='/after_install/'>After install</a> > Remote Recovery mode
           
         
           
@@ -607,23 +607,23 @@
           
             <h1>
               
-              VPN Recovery mode
+              Remote Recovery mode
             </h1>
           
 
         
 
 
-<p>The c3os vpn recovery mode can be used to recover a damaged system, or to regain access remotely (with assistance) to a machine which has been lost access to. The recovery mode is accessible only from the GRUB menu, from both the LiveCD and an installed system.</p>
+<p>The c3os recovery mode can be used to recover a damaged system, or to regain access remotely (with assistance) to a machine which has been lost access to. The recovery mode is accessible only from the GRUB menu, from both the LiveCD and an installed system.</p>
 
-<div class="notices note" ><p>On installed system there are two recovery modes available during boot. Below it is described only how the VPN recovery works. The manual recovery entry has nothing special from the standard cOS recovery mode. It can be used to reset the A/B partitions (with the user/pass used during setup) and perform any other operation without remote VPN access.</p>
+<div class="notices note" ><p>On installed system there are two recovery modes available during boot. Below it is described only how the c3os remote recovery works. The manual recovery entry has nothing special from the standard cOS recovery mode. It can be used to reset the A/B partitions (with the user/pass used during setup) and perform any other operation without remote access.</p>
 </div>
 
 <h2 id="boot-into-recovery-mode">Boot into recovery mode</h2>
-<p>VPN recovery mode can be accessed either via ISO or from an installed system.</p>
+<p>c3os recovery mode can be accessed either via ISO or from an installed system.</p>
 <p>A GRUB menu will be displayed:
 <img src="https://user-images.githubusercontent.com/2420543/165800177-3e4cccd8-f67c-43a2-bd88-329478539400.png" alt="Screenshot from 2022-04-28 17-48-06"></p>
-<p>Select the last entry <code>c3os (vpn recovery mode)</code> and press enter.</p>
+<p>Select the last entry <code>c3os (remote recovery mode)</code> and press enter.</p>
 <p>At this point the boot process starts and you should be welcomed by the <code>c3os</code> screen:</p>
 <p><img src="https://user-images.githubusercontent.com/2420543/165800182-9aa29c90-09e9-4c53-b3c7-c8ced262e3ac.png" alt="Screenshot from 2022-04-28 17-48-32"></p>
 <p>After few second the recovery process starts, and right after a QR code will be printed out of the screen along with a password which can be used later on to SSH into the machine:</p>
@@ -631,16 +631,20 @@
 <p>At this stage, take a screenshot or a photo, just save the image with the QR code.</p>
 <h2 id="connect-to-the-machine">Connect to the machine</h2>
 <p>In another machine you are using to connect to your server (your workstation, a jumpbox, or ..) use the <code>c3os</code> CLI to connect over the remote machine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ./c3os bridge --qr-code-image /path/to/image.png
-</code></pre></div><p>At this point the bridge should start, and you should be able to see connection messages in the terminal. The machine in recovery mode will be accessible at <code>10.1.0.20</code>. The bridge operates in the foreground, so you have to kill by hitting CTRL-C.</p>
-<p>In another terminal now indeed you can try to ping the machine (note, it might take some delay to create the tunnel, so first attempts might fail):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ping 10.1.0.20                                               
-PING 10.1.0.20 <span style="color:#f92672">(</span>10.1.0.20<span style="color:#f92672">)</span> 56<span style="color:#f92672">(</span>84<span style="color:#f92672">)</span> bytes of data.               
-<span style="color:#ae81ff">64</span> bytes from 10.1.0.20: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span><span style="color:#ae81ff">685</span> ms                                                                        
-<span style="color:#ae81ff">64</span> bytes from 10.1.0.20: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span><span style="color:#ae81ff">444</span> ms  
-</code></pre></div><p>once you can ping the machine, you should be able to ssh with the password showed below the QR code:</p>
-<pre tabindex="0"><code>ssh 10.1.0.20 -p 2222
-</code></pre>
+<pre tabindex="0"><code>$ ./c3os bridge --qr-code-image /path/to/image.png
+ INFO   Connecting to service kAIsuqiwKR
+ INFO   SSH access password is yTXlkak
+ INFO   SSH server reachable at 127.0.0.1:2200
+ INFO   To connect, keep this terminal open and run in another terminal 'ssh 127.0.0.1 -p 2200' the password is  yTXlkak
+ INFO   Note: the connection might not be available instantly and first attempts will likely fail.
+ INFO         Few attempts might be required before establishing a tunnel to the host.
+ INFO   Starting EdgeVPN network
+ INFO   Node ID: 12D3KooWSTRBCTNGZ61wzK5tgYvFi8rQVxkXJCDUYngBWGDSyoBK
+ INFO   Node Addresses: [/ip4/192.168.1.233/tcp/36071 /ip4/127.0.0.1/tcp/36071 /ip6/::1/tcp/37661]
+ INFO   Bootstrapping DHT
+</code></pre><p>At this point the bridge should start, and you should be able to see connection messages in the terminal. You can connect to the remote machine by using <code>ssh</code> and pointing it locally at <code>127.0.0.1:2200</code>. The username is not relevant, the password is print from the CLI.</p>
+<p>The bridge operates in the foreground, so you have to kill by hitting CTRL-C.</p>
+
 
 <footer class="footline">
 	
@@ -993,19 +997,19 @@ PING 10.1.0.20 <span style="color:#f92672">(</span>10.1.0.20<span style="color:#
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1651164130"></script>
-    <script src="/js/perfect-scrollbar.min.js?1651164130"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1651164130"></script>
-    <script src="/js/jquery.sticky.js?1651164130"></script>
-    <script src="/js/featherlight.min.js?1651164130"></script>
-    <script src="/js/highlight.pack.js?1651164130"></script>
+    <script src="/js/clipboard.min.js?1651249884"></script>
+    <script src="/js/perfect-scrollbar.min.js?1651249884"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1651249884"></script>
+    <script src="/js/jquery.sticky.js?1651249884"></script>
+    <script src="/js/featherlight.min.js?1651249884"></script>
+    <script src="/js/highlight.pack.js?1651249884"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1651164130"></script>
-    <script src="/js/learn.js?1651164130"></script>
-    <script src="/js/hugo-learn.js?1651164130"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1651249884"></script>
+    <script src="/js/learn.js?1651249884"></script>
+    <script src="/js/hugo-learn.js?1651249884"></script>
     
         
-            <script src="/mermaid/mermaid.js?1651164130"></script>
+            <script src="/mermaid/mermaid.js?1651249884"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
