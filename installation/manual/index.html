@@ -12,22 +12,22 @@
     <title>Manual installation :: c3os documentation</title>
 
     
-    <link href="/css/nucleus.css?1651867838" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1651867838" rel="stylesheet">
-    <link href="/css/hybrid.css?1651867838" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1651867838" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1651867838" rel="stylesheet">
-    <link href="/css/auto-complete.css?1651867838" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1651867838" rel="stylesheet">
-    <link href="/css/theme.css?1651867838" rel="stylesheet">
-    <link href="/css/tabs.css?1651867838" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1651867838" rel="stylesheet">
+    <link href="/css/nucleus.css?1651870189" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1651870189" rel="stylesheet">
+    <link href="/css/hybrid.css?1651870189" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1651870189" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1651870189" rel="stylesheet">
+    <link href="/css/auto-complete.css?1651870189" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1651870189" rel="stylesheet">
+    <link href="/css/theme.css?1651870189" rel="stylesheet">
+    <link href="/css/tabs.css?1651870189" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1651870189" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1651867838" rel="stylesheet">
+    <link href="/css/theme-blue.css?1651870189" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1651867838"></script>
+    <script src="/js/jquery-3.3.1.min.js?1651870189"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1651867838"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1651867838"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1651870189"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1651870189"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/docs.c3os.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1651867838"></script>
+<script type="text/javascript" src="/js/search.js?1651870189"></script>
 
     
   </div>
@@ -633,8 +633,26 @@ pass: c3os
 
 <span style="color:#75715e"># extra configuration</span>
 </code></pre></div><h2 id="manual-k3s-configuration">Manual K3s configuration</h2>
-<p>Automatic nodes configuration can be disabled by not specifying a <code>network_token</code> in the configuration file.</p>
-<p>In that case no VPN and either k3s is configured automatically, see also the <a href="https://github.com/c3os-io/c3os/tree/master/examples">examples</a> folder in the repository to configure k3s manually.</p>
+<p>Automatic nodes configuration can be disabled by disabling the <code>c3os</code> block in the configuration file.</p>
+<p>In that case, VPN is not configured, but you can still configure k3s automatically with the <code>k3s</code> and <code>k3s-agent</code> block:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">k3s</span>:
+  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#75715e"># Additional env/args for k3s server instances</span>
+  <span style="color:#f92672">env</span>:
+    <span style="color:#f92672">K3S_RESOLV_CONF</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#f92672">K3S_DATASTORE_ENDPOINT</span>: <span style="color:#e6db74">&#34;mysql://username:password@tcp(hostname:3306)/database-name&#34;</span>
+  <span style="color:#f92672">args</span>:
+  - --<span style="color:#ae81ff">cluster-init</span>
+</code></pre></div><p>for agent:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">k3s-agent</span>:
+  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#75715e"># Additional env/args for k3s server instances</span>
+  <span style="color:#f92672">env</span>:
+    <span style="color:#f92672">K3S_RESOLV_CONF</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#f92672">K3S_DATASTORE_ENDPOINT</span>: <span style="color:#e6db74">&#34;mysql://username:password@tcp(hostname:3306)/database-name&#34;</span>
+  <span style="color:#f92672">args</span>:
+  - --<span style="color:#ae81ff">cluster-init</span>
+</code></pre></div><p>See also the <a href="https://github.com/c3os-io/c3os/tree/master/examples">examples</a> folder in the repository to configure k3s manually.</p>
 
 
 <footer class="footline">
@@ -988,19 +1006,19 @@ pass: c3os
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1651867838"></script>
-    <script src="/js/perfect-scrollbar.min.js?1651867838"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1651867838"></script>
-    <script src="/js/jquery.sticky.js?1651867838"></script>
-    <script src="/js/featherlight.min.js?1651867838"></script>
-    <script src="/js/highlight.pack.js?1651867838"></script>
+    <script src="/js/clipboard.min.js?1651870189"></script>
+    <script src="/js/perfect-scrollbar.min.js?1651870189"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1651870189"></script>
+    <script src="/js/jquery.sticky.js?1651870189"></script>
+    <script src="/js/featherlight.min.js?1651870189"></script>
+    <script src="/js/highlight.pack.js?1651870189"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1651867838"></script>
-    <script src="/js/learn.js?1651867838"></script>
-    <script src="/js/hugo-learn.js?1651867838"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1651870189"></script>
+    <script src="/js/learn.js?1651870189"></script>
+    <script src="/js/hugo-learn.js?1651870189"></script>
     
         
-            <script src="/mermaid/mermaid.js?1651867838"></script>
+            <script src="/mermaid/mermaid.js?1651870189"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
