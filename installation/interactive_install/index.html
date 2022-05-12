@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: c3os documentation</title>
+    <title>Interactive installation :: c3os documentation</title>
 
     
     <link href="/css/nucleus.css?1652388814" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/installation/interactive_install/">
     <nav id="sidebar" class="">
 
 
@@ -180,7 +180,7 @@
   
     
     <li data-nav-id="/installation/" title="Installation" class="dd-item
-        
+        parent
         
         
         ">
@@ -248,7 +248,7 @@
  
   
     
-      <li data-nav-id="/installation/interactive_install/" title="Interactive installation" class="dd-item ">
+      <li data-nav-id="/installation/interactive_install/" title="Interactive installation" class="dd-item active">
         <a href="/installation/interactive_install/">
         <b>- </b>Interactive installation
         
@@ -559,6 +559,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/c3os-io/c3os/edit/master/docs/content/installation/interactive_install.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -579,7 +590,13 @@
             
           
           
-            <a href='/'></a> > Tags
+            
+            
+          
+          
+            <a href='/'></a> > <a href='/installation/'>Installation</a> > Interactive installation
+          
+        
           
         
           
@@ -590,7 +607,11 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#start-the-c3os-iso">Start the c3os ISO</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -606,24 +627,30 @@
           
             <h1>
               
-                tag ::
-              
-              Tags
+              Interactive installation
             </h1>
           
 
         
 
 
+<h2 id="start-the-c3os-iso">Start the c3os ISO</h2>
+<p>Download and mount the ISO in either baremetal or a VM that you wish to use as a node for your cluster.</p>
+<p>It doesn&rsquo;t matter if you are joining a node to an existing cluster or creating a new one, the procedure is still the same.</p>
+<p>A GRUB menu will be displayed:</p>
+<p><img src="https://user-images.githubusercontent.com/2420543/168162623-b3a62107-c32c-4ac8-b484-a429b56c1626.png" alt="Screenshot from 2022-05-12 22-29-31"></p>
+<p>Select the third entry (<code>c3os (interactive install)</code>).</p>
+<p><img src="https://user-images.githubusercontent.com/2420543/168162681-26597b53-afe6-4df8-8b9d-0f61e4a535a6.png" alt="Screenshot from 2022-05-12 22-30-07"></p>
+<p>A boot splash screen will appear, and right after a prompt, asking for installation settings:
+<img src="https://user-images.githubusercontent.com/2420543/168163058-83dda8cc-28f2-4d12-bfde-2a4cc556b82b.png" alt="Screenshot from 2022-05-12 22-32-54"></p>
+<p>After entering all the details, the installation will start, returning finally at the shell.</p>
+
+<div class="notices note" ><p>The interactive installer can be also started manually with <code>c3os interactive-install</code> from the LiveCD.</p>
+</div>
 
 
 
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -725,6 +752,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -737,6 +765,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -770,6 +801,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -785,6 +817,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -969,8 +1004,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/installation/automated/" title="Automated installation"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/basics/" title="Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/installation/manual/" title="Manual installation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1002,3 +1039,4 @@
 
   </body>
 </html>
+
