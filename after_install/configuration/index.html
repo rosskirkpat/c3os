@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Raspberry :: c3os documentation</title>
+    <title>Configuring a node after install :: c3os documentation</title>
 
     
-    <link href="/css/nucleus.css?1653158079" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653158079" rel="stylesheet">
-    <link href="/css/hybrid.css?1653158079" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653158079" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653158079" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653158079" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653158079" rel="stylesheet">
-    <link href="/css/theme.css?1653158079" rel="stylesheet">
-    <link href="/css/tabs.css?1653158079" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653158079" rel="stylesheet">
+    <link href="/css/nucleus.css?1653158078" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653158078" rel="stylesheet">
+    <link href="/css/hybrid.css?1653158078" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653158078" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653158078" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653158078" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1653158078" rel="stylesheet">
+    <link href="/css/theme.css?1653158078" rel="stylesheet">
+    <link href="/css/tabs.css?1653158078" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1653158078" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1653158079" rel="stylesheet">
+    <link href="/css/theme-blue.css?1653158078" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653158079"></script>
+    <script src="/js/jquery-3.3.1.min.js?1653158078"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/installation/raspberry/">
+  <body class="" data-url="/after_install/configuration/">
     <nav id="sidebar" class="">
 
 
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653158079"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653158079"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1653158078"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1653158078"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/docs.c3os.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653158079"></script>
+<script type="text/javascript" src="/js/search.js?1653158078"></script>
 
     
   </div>
@@ -180,7 +180,7 @@
   
     
     <li data-nav-id="/installation/" title="Installation" class="dd-item
-        parent
+        
         
         
         ">
@@ -332,7 +332,7 @@
  
   
     
-      <li data-nav-id="/installation/raspberry/" title="Raspberry" class="dd-item active">
+      <li data-nav-id="/installation/raspberry/" title="Raspberry" class="dd-item ">
         <a href="/installation/raspberry/">
         <b>- </b>Raspberry
         
@@ -382,7 +382,7 @@
   
     
     <li data-nav-id="/after_install/" title="After install" class="dd-item
-        
+        parent
         
         
         ">
@@ -513,7 +513,7 @@
  
   
     
-      <li data-nav-id="/after_install/configuration/" title="Configuring a node after install" class="dd-item ">
+      <li data-nav-id="/after_install/configuration/" title="Configuring a node after install" class="dd-item active">
         <a href="/after_install/configuration/">
         <b>- </b>Configuring a node after install
         
@@ -584,7 +584,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/c3os-io/c3os/edit/master/docs/content/installation/raspberry.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/c3os-io/c3os/edit/master/docs/content/after_install/configuration.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -615,7 +615,7 @@
             
           
           
-            <a href='/'></a> > <a href='/installation/'>Installation</a> > Raspberry
+            <a href='/'></a> > <a href='/after_install/'>After install</a> > Configuring a node after install
           
         
           
@@ -628,7 +628,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#examples">Examples</a>
+      <ul>
+        <li><a href="#enabling-zram-on-boot">Enabling ZRAM on boot</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -644,16 +652,32 @@
           
             <h1>
               
-              Raspberry
+              Configuring a node after install
             </h1>
           
 
         
 
 
-<p><code>c3os</code> supports Rasperry Pi model 3 and 4 with 64bit architecture.</p>
-<p>You can find arm64 raspberry images in the releases page. For example <code>https://github.com/c3os-io/c3os/releases/download/v1.21.4-35/c3os-opensuse-arm-rpi-v1.21.4-35.img.tar.xz</code>.</p>
-<p>Flash the image into a SD card with dd or Etcher and place your cloud-init configuration file inside the <code>cloud-config</code> directory ( create it if not present ) into the <code>COS_PERSISTENT</code> partition, for example <code>cloud-config/cloud-init.yaml</code>.</p>
+<p>c3os configuration mechanism is all based on cloud-config file.</p>
+<p>By default, <code>c3os</code> reads in lexicographic order YAML cloud-config files in the <code>/usr/local/cloud-config</code> and <code>/oem</code> directories.</p>
+<p>For instance, you should be able to see the configuration generated by the interactive-installer in the <code>/oem/99_custom.yaml</code> config file.</p>
+<p>This mechanism can be used to set and enable persistent configuration on boot.</p>
+<h2 id="examples">Examples</h2>
+<p>Below you will find some examples on how to use the cloud-config mechanism to enable/disable specific features.</p>
+<h3 id="enabling-zram-on-boot">Enabling ZRAM on boot</h3>
+<p>Copy the following file in <code>/oem/100_zram.yaml</code> or <code>/usr/local/cloud-config/100_zram.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">stages</span>:
+  <span style="color:#f92672">boot</span>:
+       -  <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;zram setup&#34;</span>
+          <span style="color:#f92672">commands</span>: 
+          - <span style="color:#ae81ff">modprobe zram</span>
+          - <span style="color:#ae81ff">echo lzo &gt; /sys/block/zram0/comp_algorithm</span>
+          - <span style="color:#ae81ff">echo 1G &gt; /sys/block/zram0/disksize</span>
+          - <span style="color:#ae81ff">mkswap --label zram0 /dev/zram0</span>
+          - <span style="color:#ae81ff">swapon --priority 100 /dev/zram0</span>
+<span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;zfs setup&#34;</span>
+</code></pre></div><p>This YAML will run the commands on boot enabling zram as swap.</p>
 
 
 <footer class="footline">
@@ -758,6 +782,150 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -855,153 +1023,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1026,10 +1047,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/installation/takeover/" title="Take over installation"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/after_install/customizing/" title="Customizing the system image"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/installation/examples/" title="Examples" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/after_install/upgrades/" title="Upgrades" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1039,19 +1060,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653158079"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653158079"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653158079"></script>
-    <script src="/js/jquery.sticky.js?1653158079"></script>
-    <script src="/js/featherlight.min.js?1653158079"></script>
-    <script src="/js/highlight.pack.js?1653158079"></script>
+    <script src="/js/clipboard.min.js?1653158078"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653158078"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1653158078"></script>
+    <script src="/js/jquery.sticky.js?1653158078"></script>
+    <script src="/js/featherlight.min.js?1653158078"></script>
+    <script src="/js/highlight.pack.js?1653158078"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653158079"></script>
-    <script src="/js/learn.js?1653158079"></script>
-    <script src="/js/hugo-learn.js?1653158079"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1653158078"></script>
+    <script src="/js/learn.js?1653158078"></script>
+    <script src="/js/hugo-learn.js?1653158078"></script>
     
         
-            <script src="/mermaid/mermaid.js?1653158079"></script>
+            <script src="/mermaid/mermaid.js?1653158078"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
