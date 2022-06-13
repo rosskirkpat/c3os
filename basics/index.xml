@@ -24,10 +24,10 @@ C3OS nodes can also autonomously connect and configure each other via a P2P hybr
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
       <guid>https://docs.c3os.io/basics/layout/</guid>
-      <description>c3OS is an immutable Distribution, built with the cOS-toolkit.
+      <description>c3OS is an immutable Distribution, built with the Elemental-toolkit.
 By default, c3OS uses an immutable setup.
 A running system will look like as follows:
-/usr/local - persistent (COS_PERSISTENT) /oem - persistent (COS_OEM) /etc - ephemeral /usr - read only / immutable See also cOS docs.</description>
+/usr/local - persistent (COS_PERSISTENT) /oem - persistent (COS_OEM) /etc - ephemeral /usr - read only / immutable See also Elemental-toolkit docs.</description>
     </item>
     
     <item>

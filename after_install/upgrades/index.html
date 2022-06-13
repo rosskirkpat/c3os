@@ -12,22 +12,22 @@
     <title>Upgrades :: c3os documentation</title>
 
     
-    <link href="/css/nucleus.css?1654791783" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1654791783" rel="stylesheet">
-    <link href="/css/hybrid.css?1654791783" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1654791783" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1654791783" rel="stylesheet">
-    <link href="/css/auto-complete.css?1654791783" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1654791783" rel="stylesheet">
-    <link href="/css/theme.css?1654791783" rel="stylesheet">
-    <link href="/css/tabs.css?1654791783" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1654791783" rel="stylesheet">
+    <link href="/css/nucleus.css?1655137681" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1655137681" rel="stylesheet">
+    <link href="/css/hybrid.css?1655137681" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1655137681" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1655137681" rel="stylesheet">
+    <link href="/css/auto-complete.css?1655137681" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1655137681" rel="stylesheet">
+    <link href="/css/theme.css?1655137681" rel="stylesheet">
+    <link href="/css/tabs.css?1655137681" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1655137681" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1654791783" rel="stylesheet">
+    <link href="/css/theme-blue.css?1655137681" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1654791783"></script>
+    <script src="/js/jquery-3.3.1.min.js?1655137681"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1654791783"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1654791783"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1655137681"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1655137681"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/docs.c3os.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1654791783"></script>
+<script type="text/javascript" src="/js/search.js?1655137681"></script>
 
     
   </div>
@@ -555,7 +555,7 @@
               </li>
           
               <li>
-                  <a class="padding" href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs"><i class='fas fa-fw fa-bookmark'></i> cOS Documentation</a>
+                  <a class="padding" href="https://rancher.github.io/elemental-toolkit/docs"><i class='fas fa-fw fa-bookmark'></i> Elemental-toolkit Documentation</a>
               </li>
           
         </ul>
@@ -657,7 +657,7 @@
 
 
 <h2 id="kubernetes">Kubernetes</h2>
-<p>Upgrades can be triggered from Kubernetes with <code>system-upgrade-controller</code> installed in your cluster. <a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#integration-with-system-upgrade-controller">See the cOS documentation</a></p>
+<p>Upgrades can be triggered from Kubernetes with <code>system-upgrade-controller</code> installed in your cluster. <a href="https://rancher.github.io/elemental-toolkit/docs/getting-started/upgrading/#integration-with-system-upgrade-controller">See the Elemental-toolkit documentation</a></p>
 <p>System upgrade controller needs to be installed in the cluster which is targeted for the upgrades, for example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f https://raw.githubusercontent.com/rancher/system-upgrade-controller/master/manifests/system-upgrade-controller.yaml
 </code></pre></div><p>Then in order to trigger an upgrade, we need to create a new upgrade plan for the cluster. create a <code>Plan</code> resource like the following as <code>upgrade.yaml</code>:</p>
@@ -695,10 +695,10 @@
 </code></pre></div><p>To specify a version, just run</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">c3os upgrade &lt;version&gt;
 </code></pre></div><p>Use <code>--force</code> to force upgrading to avoid checking versions. All the available versions can be list with: <code>c3os upgrade list-releases</code>.</p>
-<p>It is possible altough to use the same commandset from <code>cOS</code>. So for example, the following works too:</p>
+<p>It is possible altough to use the same commandset from <code>Elemental-toolkit</code>. So for example, the following works too:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">elemental upgrade --no-verify --docker-image quay.io/c3os/c3os:opensuse-v1.21.4-22
 </code></pre></div><p>c3os images are released on <a href="https://quay.io/repository/c3os/c3os">quay.io</a>.</p>
-<p><a href="https://rancher-sandbox.github.io/cos-toolkit-docs/docs/getting-started/upgrading/#upgrade-to-a-specific-container-image">See also the general cOS documentation</a> which applies for <code>c3os</code> as well.</p>
+<p><a href="https://rancher.github.io/elemental-toolkit/docs/getting-started/upgrading/#upgrade-to-a-specific-container-image">See also the general Elemental-toolkit documentation</a> which applies for <code>c3os</code> as well.</p>
 
 
 <footer class="footline">
@@ -1081,19 +1081,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1654791783"></script>
-    <script src="/js/perfect-scrollbar.min.js?1654791783"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1654791783"></script>
-    <script src="/js/jquery.sticky.js?1654791783"></script>
-    <script src="/js/featherlight.min.js?1654791783"></script>
-    <script src="/js/highlight.pack.js?1654791783"></script>
+    <script src="/js/clipboard.min.js?1655137681"></script>
+    <script src="/js/perfect-scrollbar.min.js?1655137681"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1655137681"></script>
+    <script src="/js/jquery.sticky.js?1655137681"></script>
+    <script src="/js/featherlight.min.js?1655137681"></script>
+    <script src="/js/highlight.pack.js?1655137681"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1654791783"></script>
-    <script src="/js/learn.js?1654791783"></script>
-    <script src="/js/hugo-learn.js?1654791783"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1655137681"></script>
+    <script src="/js/learn.js?1655137681"></script>
+    <script src="/js/hugo-learn.js?1655137681"></script>
     
         
-            <script src="/mermaid/mermaid.js?1654791783"></script>
+            <script src="/mermaid/mermaid.js?1655137681"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

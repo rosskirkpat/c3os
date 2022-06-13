@@ -13,7 +13,7 @@
       <pubDate>Wed, 09 Feb 2022 17:56:26 +0100</pubDate>
       
       <guid>https://docs.c3os.io/after_install/upgrades/</guid>
-      <description>Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the cOS documentation
+      <description>Kubernetes Upgrades can be triggered from Kubernetes with system-upgrade-controller installed in your cluster. See the Elemental-toolkit documentation
 System upgrade controller needs to be installed in the cluster which is targeted for the upgrades, for example:
 kubectl apply -f https://raw.githubusercontent.com/rancher/system-upgrade-controller/master/manifests/system-upgrade-controller.yaml Then in order to trigger an upgrade, we need to create a new upgrade plan for the cluster. create a Plan resource like the following as upgrade.yaml:
 --- apiVersion: upgrade.cattle.io/v1 kind: Plan metadata: name: os-upgrade namespace: system-upgrade labels: k3s-upgrade: server spec: concurrency: 1 #version: latest version: &amp;#34;opensuse-v1.</description>
@@ -47,7 +47,7 @@ Connect to the cluster network Network tokens can be used to connect to the VPN 
       
       <guid>https://docs.c3os.io/after_install/recovery_mode/</guid>
       <description>The c3os recovery mode can be used to recover a damaged system, or to regain access remotely (with assistance) to a machine which has been lost access to. The recovery mode is accessible only from the GRUB menu, from both the LiveCD and an installed system.
-On installed system there are two recovery modes available during boot. Below it is described only how the c3os remote recovery works. The manual recovery entry has nothing special from the standard cOS recovery mode.</description>
+On installed system there are two recovery modes available during boot. Below it is described only how the c3os remote recovery works. The manual recovery entry has nothing special from the standard Elemental-toolkit recovery mode.</description>
     </item>
     
     <item>
