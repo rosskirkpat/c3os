@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/c3os-io/c3os/internal/utils"
 	"github.com/c3os-io/c3os/tests/machine"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
@@ -27,6 +28,14 @@ var _ = AfterSuite(func() {
 		machine.Delete()
 	}
 })
+
+func earthly(cmd string) (string, error) {
+	return utils.SH(fmt.Sprintf("../earthly.sh %s", cmd))
+}
+
+func c3osCLI(cmd string) (string, error) {
+	return utils.SH(fmt.Sprintf("../build/c3os %s", cmd))
+}
 
 var _ = BeforeSuite(func() {
 

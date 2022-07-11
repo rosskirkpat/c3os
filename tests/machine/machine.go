@@ -28,6 +28,10 @@ func Delete() {
 
 }
 
+func Screenshot(file string) {
+	utils.SH(fmt.Sprintf(`VBoxManage controlvm "%s" screenshotpng "%s"`, ID,file))
+}
+
 func Create(sshPort string) {
 	out, err := utils.SH(fmt.Sprintf("VBoxManage createmedium disk --filename %s --size %d", filepath.Join(TempDir, "disk.vdi"), 30000))
 	fmt.Println(out)
