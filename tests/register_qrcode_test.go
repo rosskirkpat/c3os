@@ -14,9 +14,10 @@ var _ = Describe("c3os qr code register", Label("qrcode-register"), func() {
 
 	Context("register", func() {
 		It("sends config over", func() {
+			download("https://github.com/schollz/croc/releases/download/v9.6.0/croc_9.6.0_Linux-64bit.tar.gz")
 			Eventually(func() error {
 				os.RemoveAll("screenshot.png")
-				out, err := utils.SH(fmt.Sprintf("EDGEVPNTOKEN=%s edgevpn fr --name screenshot --path %s", os.Getenv("EDGEVPNTOKEN"), "screenshot.png"))
+				out, err := utils.SH(fmt.Sprintf("./croc --yes %s", os.Getenv("SENDKEY")))
 				fmt.Println(out)
 				if err != nil {
 					return err
