@@ -396,7 +396,7 @@ jobs:
     needs: 
     - build
     - prepare-alpine-test
-    - build-vm-images
+    - upgrade-test
 
     runs-on: ubuntu-latest
     steps:
@@ -426,7 +426,7 @@ jobs:
   qrcode-test:
     needs: 
     - build
-    - build-vm-images
+    - upgrade-test
     - prepare-alpine-test
     runs-on: macos-10.15
     strategy:
@@ -468,7 +468,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       if: failure()
       with:
-        name: ${{ matrix.flavor }}-upgrade-test.logs.zip
+        name: ${{ matrix.flavor }}-qrcode-test.logs.zip
         path: tests/**/logs/*
         if-no-files-found: warn
 

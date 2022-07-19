@@ -52,21 +52,41 @@ var _ = Describe("c3os qr code install", Label("qrcode-install"), func() {
 			download("https://github.com/schollz/croc/releases/download/v9.6.0/croc_9.6.0_macOS-64bit.tar.gz")
 
 			// Wait until we reboot into active, after the system is installed
-			Eventually(func() error {
-				file, err := machine.Screenshot()
-				Expect(err).ToNot(HaveOccurred())
+			By("sharing a screenshot", func() {
+				Eventually(func() error {
+					file, err := machine.Screenshot()
+					Expect(err).ToNot(HaveOccurred())
 
-				defer os.RemoveAll(file)
-				out, err := utils.SH(fmt.Sprintf("mv %s screenshot.png && ./croc send --code %s %s", file, os.Getenv("SENDKEY"), "screenshot.png"))
-				fmt.Println(out)
-				return err
-			}, 10*time.Minute, 10*time.Second).ShouldNot(HaveOccurred())
+					defer os.RemoveAll(file)
+					out, err := utils.SH(fmt.Sprintf("mv %s screenshot.png && ./croc send --code %s %s", file, os.Getenv("SENDKEY"), "screenshot.png"))
+					fmt.Println(out)
+					return err
+				}, 10*time.Minute, 10*time.Second).ShouldNot(HaveOccurred())
+			})
+			By("checking that the installer is running", func() {
+				Eventually(func() string {
+					v, _ = machine.SSHCommand("ps aux")
+					return v
+				}, 10*time.Minute, 10*time.Second).Should(ContainSubstring("elemental install"))
+			})
 
-			Eventually(func() string {
+			By("checking that the installer has terminated", func() {
+				Eventually(func() string {
+					v, _ = machine.SSHCommand("ps aux")
+					return v
+				}, 10*time.Minute, 10*time.Second).ShouldNot(ContainSubstring("elemental install"))
+			})
 
-				v, _ = machine.SSHCommand("cat /proc/cmdline")
-				return v
-			}, 10*time.Minute, 10*time.Second).ShouldNot(ContainSubstring("rd.cos.disable"))
+			By("restarting on the installed system", func() {
+
+				machine.DetachCD()
+				machine.Restart()
+
+				Eventually(func() string {
+					v, _ = machine.SSHCommand("cat /proc/cmdline")
+					return v
+				}, 10*time.Minute, 10*time.Second).ShouldNot(ContainSubstring("rd.cos.disable"))
+			})
 		})
 	})
 })

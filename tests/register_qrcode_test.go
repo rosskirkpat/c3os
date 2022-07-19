@@ -23,7 +23,7 @@ var _ = Describe("c3os qr code register", Label("qrcode-register"), func() {
 					return err
 				}
 
-				out, err = utils.SH(fmt.Sprintf("c3os register --config %s %s", os.Getenv("CLOUD_INIT"), "screenshot.png"))
+				out, err = utils.SH(fmt.Sprintf("c3os register --device /dev/sda --config %s %s", os.Getenv("CLOUD_INIT"), "screenshot.png"))
 				fmt.Println(out)
 				return err
 
