@@ -12,22 +12,22 @@
     <title>Examples :: c3os documentation</title>
 
     
-    <link href="/css/nucleus.css?1658013497" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1658013497" rel="stylesheet">
-    <link href="/css/hybrid.css?1658013497" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1658013497" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1658013497" rel="stylesheet">
-    <link href="/css/auto-complete.css?1658013497" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1658013497" rel="stylesheet">
-    <link href="/css/theme.css?1658013497" rel="stylesheet">
-    <link href="/css/tabs.css?1658013497" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1658013497" rel="stylesheet">
+    <link href="/css/nucleus.css?1658349748" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1658349748" rel="stylesheet">
+    <link href="/css/hybrid.css?1658349748" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1658349748" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1658349748" rel="stylesheet">
+    <link href="/css/auto-complete.css?1658349748" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1658349748" rel="stylesheet">
+    <link href="/css/theme.css?1658349748" rel="stylesheet">
+    <link href="/css/tabs.css?1658349748" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1658349748" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1658013497" rel="stylesheet">
+    <link href="/css/theme-blue.css?1658349748" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1658013497"></script>
+    <script src="/js/jquery-3.3.1.min.js?1658349748"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -56,14 +56,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1658013497"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1658013497"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1658349748"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1658349748"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/docs.c3os.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1658013497"></script>
+<script type="text/javascript" src="/js/search.js?1658349748"></script>
 
     
   </div>
@@ -631,6 +631,7 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#single-node-cluster-with-default-userpassword">Single node cluster with default user/password</a></li>
+    <li><a href="#hostname">Hostname</a></li>
   </ul>
 </nav>
     </div>
@@ -673,33 +674,23 @@
 <h1 id="run-only-k3s-without-vpns">Run only k3s without VPNs</h1>
 <p><code>c3os</code> can be also used without any VPN and P2P network. Infact, <code>k3s</code> is already pre-installed, and it is sufficient to not specify any <code>c3os</code> block in the cloud init configuration.</p>
 <p>For example, to start <code>k3s</code> as a server with <code>c3os</code> it&rsquo;s sufficient to specify the <code>k3s</code> service in the config file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Default deployment&#34;</span>
-<span style="color:#f92672">stages</span>:     
-   <span style="color:#f92672">network</span>:
-     - <span style="color:#f92672">if</span>: <span style="color:#e6db74">&#39;[ ! -f &#34;/run/cos/recovery_mode&#34; ]&#39;</span>
-       <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Setup k3s&#34;</span>
-       <span style="color:#f92672">environment_file</span>: <span style="color:#e6db74">&#34;/etc/sysconfig/k3s&#34;</span>
-       <span style="color:#f92672">environment</span>:
-         <span style="color:#f92672">K3S_TOKEN</span>: <span style="color:#e6db74">&#34;...&#34;</span>
-       <span style="color:#f92672">systemctl</span>:
-         <span style="color:#f92672">start</span>: 
-         - <span style="color:#ae81ff">k3s</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#node-config</span>
+
+<span style="color:#f92672">k3s</span>:
+  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
 </code></pre></div><p>And similarly for an <code>agent</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Default deployment&#34;</span>
-<span style="color:#f92672">stages</span>:     
-   <span style="color:#f92672">network</span>:
-     - <span style="color:#f92672">if</span>: <span style="color:#e6db74">&#39;[ ! -f &#34;/run/cos/recovery_mode&#34; ]&#39;</span>
-       <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Setup k3s&#34;</span>
-       <span style="color:#f92672">environment_file</span>: <span style="color:#e6db74">&#34;/etc/sysconfig/k3s-agent&#34;</span>
-       <span style="color:#f92672">environment</span>:
-         <span style="color:#f92672">K3S_TOKEN</span>: <span style="color:#e6db74">&#34;...&#34;</span>
-       <span style="color:#f92672">systemctl</span>:
-         <span style="color:#f92672">start</span>: 
-         - <span style="color:#ae81ff">k3s-agent</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#node-config</span>
+<span style="color:#f92672">k3s-agent</span>:
+  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">env</span>:
+    <span style="color:#f92672">K3S_TOKEN</span>: <span style="color:#ae81ff">...</span>
+    <span style="color:#f92672">K3S_URL</span>: <span style="color:#ae81ff">...</span>
 </code></pre></div><h2 id="single-node-cluster-with-default-userpassword">Single node cluster with default user/password</h2>
+<p>This is will setup k3s single-node + VPN with a static ip (<code>10.1.0.2</code>).</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">c3os</span>:
   <span style="color:#f92672">network_token</span>: <span style="color:#e6db74">&#34;....&#34;</span>
   <span style="color:#f92672">role</span>: <span style="color:#e6db74">&#34;master&#34;</span>
+
 <span style="color:#f92672">vpn</span>:
   <span style="color:#75715e"># EdgeVPN environment options</span>
   <span style="color:#f92672">DHCP</span>: <span style="color:#e6db74">&#34;false&#34;</span>
@@ -711,6 +702,15 @@
        <span style="color:#f92672">users</span>:
         <span style="color:#f92672">c3os</span>:
           <span style="color:#f92672">passwd</span>: <span style="color:#e6db74">&#34;c3os&#34;</span>
+</code></pre></div><h2 id="hostname">Hostname</h2>
+<p>Sometimes you might want to create a single cloud-init file for a set of machines, and also make sure each node has a different hostname.</p>
+<p>The cloud-config syntax supports templating, so one could automate hostname generation based on the machine id which is generated for each host:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#node-config</span>
+
+<span style="color:#f92672">stages</span>:
+   <span style="color:#f92672">initramfs</span>:
+     - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Setup hostname&#34;</span>
+       <span style="color:#f92672">hostname</span>: <span style="color:#e6db74">&#34;node-{{ trunc 4 .MachineID }}&#34;</span>
 </code></pre></div>
 
 <footer class="footline">
@@ -1096,19 +1096,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1658013497"></script>
-    <script src="/js/perfect-scrollbar.min.js?1658013497"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1658013497"></script>
-    <script src="/js/jquery.sticky.js?1658013497"></script>
-    <script src="/js/featherlight.min.js?1658013497"></script>
-    <script src="/js/highlight.pack.js?1658013497"></script>
+    <script src="/js/clipboard.min.js?1658349748"></script>
+    <script src="/js/perfect-scrollbar.min.js?1658349748"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1658349748"></script>
+    <script src="/js/jquery.sticky.js?1658349748"></script>
+    <script src="/js/featherlight.min.js?1658349748"></script>
+    <script src="/js/highlight.pack.js?1658349748"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1658013497"></script>
-    <script src="/js/learn.js?1658013497"></script>
-    <script src="/js/hugo-learn.js?1658013497"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1658349748"></script>
+    <script src="/js/learn.js?1658349748"></script>
+    <script src="/js/hugo-learn.js?1658349748"></script>
     
         
-            <script src="/mermaid/mermaid.js?1658013497"></script>
+            <script src="/mermaid/mermaid.js?1658349748"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
