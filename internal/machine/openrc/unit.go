@@ -58,7 +58,7 @@ func (s ServiceUnit) WriteUnit() error {
 	return nil
 }
 
-// TODO: This is too much k3s specific
+// TODO: This is too much k3s specific.
 func (s ServiceUnit) OverrideCmd(cmd string) error {
 	k3sbin := utils.K3sBin()
 	if k3sbin == "" {
